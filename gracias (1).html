@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¡Gracias por tu compra! — La Brújula Materna</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: linear-gradient(160deg, #1C2B3A 0%, #243344 60%, #2C3D4E 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+
+  .card {
+    background: #FDF8F2;
+    border-radius: 24px;
+    max-width: 600px;
+    width: 100%;
+    padding: 52px 48px;
+    text-align: center;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.3);
+  }
+
+  .check-circle {
+    width: 80px; height: 80px;
+    background: linear-gradient(135deg, #4A9060, #2A8A50);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 36px;
+    margin: 0 auto 28px;
+    box-shadow: 0 8px 28px rgba(42,138,80,0.3);
+  }
+
+  .brand {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #C8943A;
+    margin-bottom: 12px;
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    font-weight: 700;
+    color: #1C2B3A;
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+
+  h1 em { font-style: italic; color: #C8943A; }
+
+  .subtitle {
+    font-size: 16px;
+    color: #6A6258;
+    line-height: 1.65;
+    font-weight: 300;
+    margin-bottom: 40px;
+    max-width: 440px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .divider {
+    width: 50px; height: 2px;
+    background: linear-gradient(90deg, transparent, #C8943A, transparent);
+    margin: 0 auto 36px;
+  }
+
+  .downloads {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 36px;
+  }
+
+  .download-btn {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: #1C2B3A;
+    border-radius: 14px;
+    padding: 18px 24px;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 16px rgba(28,43,58,0.15);
+  }
+
+  .download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(28,43,58,0.25);
+  }
+
+  .download-icon {
+    width: 48px; height: 48px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+
+  .download-icon.main { background: linear-gradient(135deg, #F2C4A8, #E8A882); }
+  .download-icon.bonus { background: linear-gradient(135deg, #D4C8F0, #9B7FD0); }
+
+  .download-info {
+    text-align: left;
+    flex: 1;
+  }
+
+  .download-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 3px;
+  }
+
+  .download-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: #FFFFFF;
+    line-height: 1.25;
+  }
+
+  .download-size {
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+    margin-top: 2px;
+  }
+
+  .download-arrow {
+    font-size: 20px;
+    color: #C8943A;
+    flex-shrink: 0;
+  }
+
+  .info-box {
+    background: #FFF5E8;
+    border: 1px solid rgba(200,148,58,0.25);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 28px;
+    text-align: left;
+  }
+
+  .info-box-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1C2B3A;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .info-box p {
+    font-size: 13px;
+    color: #6A6258;
+    line-height: 1.65;
+  }
+
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  .step {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 13px;
+    color: #6A6258;
+  }
+
+  .step-num {
+    width: 20px; height: 20px;
+    background: #1C2B3A;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+    color: white;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .guarantee {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #A89E94;
+    margin-top: 8px;
+  }
+
+  @media (max-width: 500px) {
+    .card { padding: 36px 24px; }
+    h1 { font-size: 30px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+
+  <div class="check-circle">✓</div>
+
+  <div class="brand">La Brújula Materna</div>
+
+  <h1>¡Tu compra fue<br><em>exitosa</em>! 🎉</h1>
+
+  <p class="subtitle">
+    Gracias por confiar en nosotros. Tus materiales están listos para descargar ahora mismo.
+  </p>
+
+  <div class="divider"></div>
+
+  <!-- BOTONES DE DESCARGA -->
+  <!-- 
+    INSTRUCCIÓN: Reemplazá los href con los links reales de Google Drive.
+    Para obtenerlos: Google Drive → click derecho en el PDF → "Obtener enlace" → "Cualquiera con el enlace" → Copiar
+  -->
+  <div class="downloads">
+
+    <a href="https://drive.google.com/uc?export=download&id=1ujD-in8E79sAjeFYZJhNas9t9o72mNFG" class="download-btn" target="_blank">
+      <div class="download-icon main">🌙</div>
+      <div class="download-info">
+        <div class="download-label">Ebook principal</div>
+        <div class="download-name">Sueño del Bebé — Guía Completa</div>
+        <div class="download-size">PDF · 36 páginas · 13 MB</div>
+      </div>
+      <div class="download-arrow">↓</div>
+    </a>
+
+    <a href="https://drive.google.com/uc?export=download&id=1JwpOZsg6L4XjmGTSnBiEIKbHb8jJZWiS" class="download-btn" target="_blank">
+      <div class="download-icon bonus">📱</div>
+      <div class="download-info">
+        <div class="download-label">Bonus incluido</div>
+        <div class="download-name">Pantallas y Sueño del Bebé</div>
+        <div class="download-size">PDF · 17 páginas · 6 MB</div>
+      </div>
+      <div class="download-arrow">↓</div>
+    </a>
+
+  </div>
+
+  <!-- INSTRUCCIONES -->
+  <div class="info-box">
+    <div class="info-box-title">📲 ¿Cómo abrir los PDFs?</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <span>Hacé click en cada botón de descarga arriba.</span>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <span>Si abre Google Drive, hacé click en el ícono de descarga (⬇) arriba a la derecha.</span>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <span>Guardá los PDFs en tu teléfono o computadora — son tuyos para siempre.</span>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <span>Abrís con cualquier lector de PDF (el que ya tenés en tu dispositivo sirve).</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- EMAIL CAPTURE -->
+  <div style="background:#F5F0FF; border:1px solid rgba(107,79,160,0.2); border-radius:14px; padding:22px 24px; margin-top:20px; text-align:center;">
+    <div style="font-size:14px; font-weight:700; color:#1C2B3A; margin-bottom:6px;">📬 ¿Querés recibir tips de sueño y novedades?</div>
+    <p style="font-size:13px; color:#6A6258; margin-bottom:14px; line-height:1.6;">Dejá tu email y te escribimos con contenido extra de La Brújula Materna.</p>
+    <div style="display:flex; gap:8px; max-width:400px; margin:0 auto; flex-wrap:wrap; justify-content:center;">
+      <input type="email" id="email-input" placeholder="tu@email.com" style="flex:1; min-width:200px; padding:11px 16px; border:1px solid rgba(107,79,160,0.25); border-radius:8px; font-size:14px; font-family:sans-serif; outline:none; color:#1C2B3A;">
+      <button onclick="saveEmail()" style="background:linear-gradient(135deg,#6B4FA0,#4A3070); color:white; border:none; padding:11px 20px; border-radius:8px; font-size:14px; font-weight:600; cursor:pointer; white-space:nowrap;">Suscribirme</button>
+    </div>
+    <div id="email-success" style="display:none; margin-top:10px; font-size:13px; color:#4A9060; font-weight:600;">✓ ¡Listo! Te escribimos pronto.</div>
+  </div>
+
+  <!-- CONTACTO Y GARANTIA -->
+  <div style="margin-top:16px; text-align:center; padding:16px 20px; background:#FDF8F2; border-radius:12px; border:1px solid rgba(28,43,58,0.08);">
+    <p style="font-size:13px; color:#6A6258; line-height:1.8;">
+      ¿Consultas o necesitás la devolución?<br>
+      <a href="mailto:labrujulamaterna@gmail.com" style="color:#C8943A; font-weight:700; text-decoration:none;">labrujulamaterna@gmail.com</a><br>
+      <span style="font-size:12px; color:#A89E94;">Respondemos en menos de 24 hs · Garantía de 7 días sin preguntas</span>
+    </p>
+  </div>
+
+</div>
+
+<script>
+function saveEmail() {
+  const email = document.getElementById('email-input').value;
+  if (!email || !email.includes('@')) {
+    alert('Por favor ingresá un email válido');
+    return;
+  }
+  const subject = encodeURIComponent('Nueva suscripcion - La Brujula Materna');
+  const body = encodeURIComponent('Email suscripto desde pagina de descarga: ' + email);
+  window.open('mailto:labrujulamaterna@gmail.com?subject=' + subject + '&body=' + body);
+  document.getElementById('email-success').style.display = 'block';
+  document.getElementById('email-input').value = '';
+}
+</script>
+
+</body>
+</html>
