@@ -278,11 +278,42 @@
     </div>
   </div>
 
-  <div class="guarantee">
-    🔒 Recordá: tenés 7 días de garantía. Escribinos si necesitás algo.
+  <!-- EMAIL CAPTURE -->
+  <div style="background:#F5F0FF; border:1px solid rgba(107,79,160,0.2); border-radius:14px; padding:22px 24px; margin-top:20px; text-align:center;">
+    <div style="font-size:14px; font-weight:700; color:#1C2B3A; margin-bottom:6px;">📬 ¿Querés recibir tips de sueño y novedades?</div>
+    <p style="font-size:13px; color:#6A6258; margin-bottom:14px; line-height:1.6;">Dejá tu email y te escribimos con contenido extra de La Brújula Materna.</p>
+    <div style="display:flex; gap:8px; max-width:400px; margin:0 auto; flex-wrap:wrap; justify-content:center;">
+      <input type="email" id="email-input" placeholder="tu@email.com" style="flex:1; min-width:200px; padding:11px 16px; border:1px solid rgba(107,79,160,0.25); border-radius:8px; font-size:14px; font-family:sans-serif; outline:none; color:#1C2B3A;">
+      <button onclick="saveEmail()" style="background:linear-gradient(135deg,#6B4FA0,#4A3070); color:white; border:none; padding:11px 20px; border-radius:8px; font-size:14px; font-weight:600; cursor:pointer; white-space:nowrap;">Suscribirme</button>
+    </div>
+    <div id="email-success" style="display:none; margin-top:10px; font-size:13px; color:#4A9060; font-weight:600;">✓ ¡Listo! Te escribimos pronto.</div>
+  </div>
+
+  <!-- CONTACTO Y GARANTIA -->
+  <div style="margin-top:16px; text-align:center; padding:16px 20px; background:#FDF8F2; border-radius:12px; border:1px solid rgba(28,43,58,0.08);">
+    <p style="font-size:13px; color:#6A6258; line-height:1.8;">
+      ¿Consultas o necesitás la devolución?<br>
+      <a href="mailto:labrujulamaterna@gmail.com" style="color:#C8943A; font-weight:700; text-decoration:none;">labrujulamaterna@gmail.com</a><br>
+      <span style="font-size:12px; color:#A89E94;">Respondemos en menos de 24 hs · Garantía de 7 días sin preguntas</span>
+    </p>
   </div>
 
 </div>
+
+<script>
+function saveEmail() {
+  const email = document.getElementById('email-input').value;
+  if (!email || !email.includes('@')) {
+    alert('Por favor ingresá un email válido');
+    return;
+  }
+  const subject = encodeURIComponent('Nueva suscripcion - La Brujula Materna');
+  const body = encodeURIComponent('Email suscripto desde pagina de descarga: ' + email);
+  window.open('mailto:labrujulamaterna@gmail.com?subject=' + subject + '&body=' + body);
+  document.getElementById('email-success').style.display = 'block';
+  document.getElementById('email-input').value = '';
+}
+</script>
 
 </body>
 </html>
