@@ -1,11 +1,12 @@
 const https = require('https');
 
 exports.handler = async (event, context) => {
+  // Only allow POST
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, body: 'Method Not Allowed' };
   }
 
-  const ACCESS_TOKEN = 'APP_USR-2363455116822820-053019-8563b77f13648e8be167422839debffd-3438543176';
+  const ACCESS_TOKEN = 'APP_USR-4710199934963697-053019-de1b216827b7ee393785ab1367904cfd-211361272';
 
   const preference = {
     items: [{
@@ -16,9 +17,9 @@ exports.handler = async (event, context) => {
       unit_price: 9900
     }],
     back_urls: {
-      success: 'https://la-brujula-materna.netlify.app/gracias.html',
-      failure: 'https://la-brujula-materna.netlify.app/?pago=fallido',
-      pending: 'https://la-brujula-materna.netlify.app/gracias.html'
+      success: 'https://precious-bubblegum-80fca2.netlify.app/gracias.html',
+      failure: 'https://precious-bubblegum-80fca2.netlify.app/?pago=fallido',
+      pending: 'https://precious-bubblegum-80fca2.netlify.app/gracias.html'
     },
     auto_return: 'approved',
     statement_descriptor: 'La Brujula Materna',
@@ -27,6 +28,7 @@ exports.handler = async (event, context) => {
 
   return new Promise((resolve) => {
     const body = JSON.stringify(preference);
+
     const options = {
       hostname: 'api.mercadopago.com',
       path: '/checkout/preferences',
