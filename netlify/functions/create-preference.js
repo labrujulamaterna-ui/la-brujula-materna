@@ -17,9 +17,9 @@ exports.handler = async (event, context) => {
       unit_price: 9900
     }],
     back_urls: {
-      success: 'https://precious-bubblegum-80fca2.netlify.app/gracias.html',
-      failure: 'https://precious-bubblegum-80fca2.netlify.app/?pago=fallido',
-      pending: 'https://precious-bubblegum-80fca2.netlify.app/gracias.html'
+      success: 'https://la-brujula-materna.netlify.app/gracias.html',
+      failure: 'https://la-brujula-materna.netlify.app/?pago=fallido',
+      pending: 'https://la-brujula-materna.netlify.app/gracias.html'
     },
     auto_return: 'approved',
     statement_descriptor: 'La Brujula Materna',
