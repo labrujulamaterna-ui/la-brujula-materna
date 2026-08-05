@@ -3,841 +3,642 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tu Mejor Versión con Sole — Bajá de peso sin dietas extremas</title>
-<meta name="description" content="Sole bajó 37 kg después de los 60. Su camino, ahora para vos. Guías + comunidad 90 días + encuentros en vivo.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,700;0,900;1,300;1,600;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-
+<title>Tu Mejor Versión con Sole</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root {
-  --rose:    #9B4F6B;
-  --rose2:   #B5607E;
-  --rose3:   #CC7A96;
-  --rose-dark: #6B2D47;
-  --gold:    #C8943A;
-  --gold2:   #E8B45A;
-  --cream:   #FDF8F8;
-  --warm:    #FAF0F3;
-  --sand:    #F0D8E0;
-  --text:    #2A1820;
-  --muted:   #7A5A64;
-  --light:   #B89AA4;
-  --white:   #FFFFFF;
-  --ok:      #4A8C5C;
-  --danger:  #C0392B;
-}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+*{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden;}
+body{font-family:'DM Sans',sans-serif;background:#FDF8F8;color:#2A1820;overflow-x:hidden;}
+:root{
+  --rose:#9B4F6B;--dark:#6B2D47;--gold:#E8B45A;
+  --cream:#FDF8F8;--warm:#FAF0F3;--sand:#F0D8E0;
+  --muted:#7A5A64;--white:#fff;
+}
+img{display:block;max-width:100%;}
+button,a{cursor:pointer;}
 
-.top-bar{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--rose-dark);padding:10px 20px;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;}
-.top-bar-text{font-size:13px;color:rgba(255,255,255,0.9);}
-.top-bar-text strong{color:var(--gold2);}
-.top-pill{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);padding:4px 12px;border-radius:20px;font-size:12px;color:rgba(255,255,255,0.65);}
+/* TOP BAR */
+.tb{position:fixed;top:0;left:0;right:0;z-index:99;background:var(--dark);padding:10px 16px;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;}
+.tb-t{font-size:13px;color:rgba(255,255,255,.9);}
+.tb-t strong{color:var(--gold);}
+.tb-p{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);padding:3px 12px;border-radius:20px;font-size:11px;color:rgba(255,255,255,.6);}
 
-.hero{min-height:100vh;padding:110px 24px 80px;background:linear-gradient(155deg,var(--rose-dark) 0%,var(--rose) 50%,#8A3D58 100%);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;}
-.hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(1px 1px at 15% 10%,rgba(255,255,255,0.4) 0%,transparent 100%),radial-gradient(1.5px 1.5px at 38% 6%,rgba(255,255,255,0.25) 0%,transparent 100%),radial-gradient(1px 1px at 62% 18%,rgba(255,255,255,0.3) 0%,transparent 100%),radial-gradient(1px 1px at 85% 8%,rgba(255,255,255,0.2) 0%,transparent 100%);pointer-events:none;}
-.hero::after{content:'';position:absolute;bottom:-100px;right:-60px;width:480px;height:480px;background:radial-gradient(ellipse,rgba(200,148,58,0.12) 0%,transparent 70%);pointer-events:none;}
-.hero-inner{max-width:900px;width:100%;margin:0 auto;display:flex;flex-direction:row;gap:56px;align-items:center;position:relative;z-index:2;}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.9);font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:6px 16px;border-radius:20px;margin-bottom:22px;opacity:0;animation:fadeUp 0.6s ease 0.2s forwards;}
-.hero-title{font-family:'Fraunces',serif;font-size:clamp(32px,5vw,54px);font-weight:700;color:var(--white);line-height:1.1;margin-bottom:18px;opacity:0;animation:fadeUp 0.7s ease 0.35s forwards;}
-.hero-title em{font-style:italic;color:var(--gold2);}
-.hero-title .kg{font-size:clamp(56px,9vw,90px);font-weight:900;line-height:0.9;display:block;color:var(--white);}
-.hero-sub{font-size:clamp(15px,1.8vw,17px);color:rgba(255,255,255,0.65);line-height:1.75;font-weight:300;margin-bottom:34px;max-width:440px;opacity:0;animation:fadeUp 0.7s ease 0.5s forwards;}
-.hero-cta{display:flex;flex-direction:column;gap:12px;align-items:flex-start;opacity:0;animation:fadeUp 0.7s ease 0.65s forwards;}
-.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--white);color:var(--rose);font-family:'DM Sans',sans-serif;font-size:16px;font-weight:700;padding:17px 38px;border-radius:50px;text-decoration:none;border:none;cursor:pointer;box-shadow:0 8px 28px rgba(0,0,0,0.2);transition:transform 0.2s,box-shadow 0.2s;}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(0,0,0,0.25);}
-.hero-guarantee{font-size:12px;color:rgba(255,255,255,0.4);display:flex;align-items:center;gap:6px;}
-.hero-photo{opacity:0;animation:fadeUp 0.7s ease 0.45s forwards;}
-.hero-photo-frame{width:100%;aspect-ratio:3/4;border-radius:22px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:28px;position:relative;overflow:hidden;}
-.hero-photo-frame::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(107,45,71,0.85) 100%);}
-.hero-photo-icon{font-size:44px;opacity:0.25;}
-.hero-photo-label{font-size:12px;color:rgba(255,255,255,0.3);text-align:center;position:relative;z-index:1;}
-.hero-photo-tag{position:absolute;bottom:22px;left:20px;right:20px;background:rgba(107,45,71,0.9);border:1px solid rgba(255,255,255,0.15);border-radius:14px;padding:14px 18px;z-index:2;}
-.hero-photo-tag-name{font-size:15px;font-weight:600;color:var(--white);}
-.hero-photo-tag-sub{font-size:12px;color:rgba(255,255,255,0.5);margin-top:2px;}
-.resultado-badge{position:absolute;top:18px;right:-8px;background:var(--white);color:var(--rose);border-radius:50%;width:88px;height:88px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:900;z-index:3;box-shadow:0 8px 24px rgba(0,0,0,0.2);}
-.resultado-badge .kg{font-size:27px;line-height:1;}
-.resultado-badge .kg-label{font-size:8px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;opacity:0.7;}
-/* MOBILE PHOTO TOP */
-.hero-photo-mobile{display:none;width:100%;position:relative;overflow:hidden;}
+/* BTNS */
+.btn-r{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--white);color:var(--rose);font-family:'DM Sans',sans-serif;font-size:16px;font-weight:700;padding:16px 32px;border-radius:50px;border:none;width:100%;box-shadow:0 6px 24px rgba(0,0,0,.18);transition:transform .2s;}
+.btn-r:hover{transform:translateY(-2px);}
+.btn-d{display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,var(--dark),var(--rose));color:var(--white);font-family:'DM Sans',sans-serif;font-size:16px;font-weight:700;padding:16px 32px;border-radius:50px;border:none;width:100%;box-shadow:0 6px 24px rgba(155,79,107,.35);transition:transform .2s;}
+.btn-d:hover{transform:translateY(-2px);}
 
-@keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+/* HERO */
+.hero{background:linear-gradient(160deg,var(--dark) 0%,var(--rose) 100%);padding-top:56px;}
+.hero-img{position:relative;width:100%;}
+.hero-img img{width:100%;height:300px;object-fit:cover;object-position:center 15%;}
+.hero-img-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(107,45,71,.8) 100%);}
+.hero-badge{position:absolute;top:14px;right:14px;background:var(--white);color:var(--rose);border-radius:50%;width:72px;height:72px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:900;box-shadow:0 6px 20px rgba(0,0,0,.25);}
+.hero-badge-num{font-size:22px;line-height:1;font-family:'Fraunces',serif;}
+.hero-badge-lbl{font-size:8px;text-transform:uppercase;letter-spacing:.05em;opacity:.7;}
+.hero-tag{position:absolute;bottom:14px;left:14px;right:14px;background:rgba(107,45,71,.92);border-radius:10px;padding:10px 14px;}
+.hero-tag-name{font-size:13px;font-weight:600;color:var(--white);}
+.hero-tag-sub{font-size:11px;color:rgba(255,255,255,.5);margin-top:2px;}
+.hero-txt{padding:22px 18px 32px;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.9);font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:14px;}
+.hero-h1{font-family:'Fraunces',serif;font-size:38px;font-weight:700;color:var(--white);line-height:1.05;margin-bottom:12px;}
+.hero-h1 .num{font-size:54px;font-weight:900;line-height:.9;display:block;}
+.hero-h1 em{font-style:italic;color:var(--gold);}
+.hero-sub{font-size:14px;color:rgba(255,255,255,.72);line-height:1.6;margin-bottom:20px;}
+.hero-small{font-size:11px;color:rgba(255,255,255,.38);margin-top:10px;text-align:center;}
 
-.scarcity-bar{background:var(--rose-dark);padding:14px 20px;}
-.scarcity-inner{max-width:700px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
-.scarcity-text{font-size:13px;color:rgba(255,255,255,0.75);}
-.scarcity-text strong{color:var(--gold2);}
-.progress-wrap{flex:1;min-width:160px;}
-.progress-label{display:flex;justify-content:space-between;font-size:11px;color:rgba(255,255,255,0.45);margin-bottom:5px;}
-.progress-bar{height:6px;background:rgba(255,255,255,0.1);border-radius:3px;overflow:hidden;}
-.progress-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2));border-radius:3px;width:0%;transition:width 1.2s ease;}
+/* SCARCITY */
+.scar{background:var(--dark);padding:12px 16px;}
+.scar-inner{display:flex;flex-direction:column;gap:8px;}
+.scar-t{font-size:12px;color:rgba(255,255,255,.75);text-align:center;}
+.scar-t strong{color:var(--gold);}
+.prog-lbl{display:flex;justify-content:space-between;font-size:10px;color:rgba(255,255,255,.45);margin-bottom:4px;}
+.prog-bar{height:5px;background:rgba(255,255,255,.1);border-radius:3px;overflow:hidden;}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--gold),#F5CA70);border-radius:3px;width:0;transition:width 1.2s ease;}
 
-.container{max-width:860px;margin:0 auto;}
-.container-sm{max-width:680px;margin:0 auto;}
-.section-eyebrow{font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--rose);margin-bottom:10px;}
-.section-title{font-family:'Fraunces',serif;font-size:clamp(26px,4vw,42px);font-weight:700;color:var(--rose-dark);line-height:1.15;margin-bottom:14px;}
-.section-title em{font-style:italic;color:var(--rose);}
-.section-sub{font-size:16px;color:var(--muted);line-height:1.75;font-weight:300;}
+/* SECTION BASE */
+.sec{padding:40px 16px;}
+.sec-alt{padding:40px 16px;background:var(--warm);}
+.sec-dark{padding:40px 16px;background:var(--dark);}
+.eyebrow{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--rose);margin-bottom:6px;}
+.eyebrow-w{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;}
+.ttl{font-family:'Fraunces',serif;font-size:24px;font-weight:700;color:var(--dark);line-height:1.2;margin-bottom:10px;}
+.ttl em{font-style:italic;color:var(--rose);}
+.ttl-w{font-family:'Fraunces',serif;font-size:24px;font-weight:700;color:var(--white);line-height:1.2;margin-bottom:10px;}
+.ttl-w em{font-style:italic;color:var(--gold);}
+.sub{font-size:14px;color:var(--muted);line-height:1.65;margin-bottom:20px;}
+.sub-w{font-size:14px;color:rgba(255,255,255,.55);line-height:1.65;margin-bottom:20px;}
 
+/* DOLOR CARDS */
+.dolor-grid{display:flex;flex-direction:column;gap:8px;margin-bottom:24px;}
+.dc{display:flex;align-items:flex-start;gap:12px;background:var(--white);border-radius:12px;padding:14px;border:1px solid var(--sand);}
+.dc-icon{font-size:20px;flex-shrink:0;margin-top:1px;}
+.dc-t{font-size:13px;font-weight:600;color:#2A1820;margin-bottom:3px;}
+.dc-s{font-size:12px;color:var(--muted);line-height:1.45;}
 
+/* QUOTE */
+.quote-box{background:var(--white);border-radius:14px;padding:20px 18px;border:1px solid var(--sand);border-left:4px solid var(--rose);margin-bottom:24px;}
+.quote-t{font-family:'Fraunces',serif;font-size:17px;font-weight:700;font-style:italic;color:var(--dark);line-height:1.4;margin-bottom:10px;}
+.quote-s{font-size:13px;color:var(--muted);line-height:1.65;}
+.quote-link{font-size:13px;color:var(--rose);font-weight:600;margin-top:10px;}
 
-/* DOLOR */
-.dolor-section{background:var(--white);padding:80px 24px;}
-.dolor-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:40px;}
-.dolor-card{background:var(--warm);border-radius:16px;padding:22px;border:1px solid var(--sand);display:flex;align-items:flex-start;gap:14px;}
-.dolor-card:hover{border-color:rgba(200,148,58,0.3);box-shadow:0 4px 16px rgba(200,148,58,0.08);}
-.dolor-icon{font-size:22px;flex-shrink:0;margin-top:1px;}
-.dolor-text strong{display:block;font-size:14px;font-weight:600;color:var(--text);margin-bottom:4px;}
-.dolor-text span{font-size:13px;color:var(--muted);line-height:1.55;}
+/* SOLE SECTION — antes/despues + texto */
+.sole-before-after{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px;}
+.ba-img{display:flex;flex-direction:column;align-items:center;gap:6px;}
+.ba-img img{width:100%;border-radius:12px;object-fit:cover;aspect-ratio:3/4;}
+.ba-lbl{font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:.08em;text-transform:uppercase;}
+.ba-lbl.antes{background:var(--dark);color:var(--white);}
+.ba-lbl.hoy{background:linear-gradient(135deg,#C8943A,var(--gold));color:var(--white);}
+.sole-txt{display:flex;flex-direction:column;gap:10px;margin-bottom:20px;}
+.sole-p{font-size:13px;color:#2A1820;line-height:1.65;}
+.sole-p strong{color:var(--dark);font-weight:600;}
+.hitos{display:flex;flex-direction:column;gap:6px;}
+.hito{display:flex;align-items:flex-start;gap:10px;background:var(--white);border-radius:10px;padding:10px 12px;border:1px solid var(--sand);}
+.hito-ico{font-size:14px;flex-shrink:0;margin-top:1px;}
+.hito-t{font-size:12px;color:#2A1820;line-height:1.45;}
+.hito-t strong{color:var(--dark);}
 
-/* SOLE */
-.sole-section{background:var(--warm);padding:80px 24px;}
-.sole-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-top:44px;}
-.sole-photo-frame{aspect-ratio:3/4;border-radius:20px;background:var(--sand);border:1px solid rgba(155,79,107,0.2);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;}
-.sole-photo-icon{font-size:48px;opacity:0.2;}
-.sole-photo-lbl{font-size:12px;color:var(--light);text-align:center;}
-.sole-text p{font-size:15px;color:var(--text);line-height:1.8;margin-bottom:16px;}
-.sole-text p:last-child{margin-bottom:0;}
-.sole-text strong{color:var(--rose-dark);font-weight:600;}
-.sole-hitos{display:flex;flex-direction:column;gap:10px;margin-top:24px;}
-.hito{display:flex;align-items:flex-start;gap:12px;background:var(--white);border-radius:12px;padding:12px 16px;border:1px solid var(--sand);}
-.hito-icon{font-size:16px;flex-shrink:0;margin-top:2px;}
-.hito-text{font-size:13px;color:var(--text);line-height:1.5;}
-.hito-text strong{color:var(--rose-dark);}
+/* ANTES/DESPUES LOGROS */
+.logros-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px;}
+.lgr-sin{border-radius:14px;padding:16px 14px;background:var(--white);border:1px solid rgba(192,57,43,.18);}
+.lgr-con{border-radius:14px;padding:16px 14px;background:var(--white);border:1px solid rgba(155,79,107,.25);}
+.lgr-hdr{display:flex;align-items:center;gap:7px;margin-bottom:12px;}
+.lgr-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.lgr-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;}
+.lgr-items{display:flex;flex-direction:column;gap:7px;}
+.lgr-item{display:flex;align-items:flex-start;gap:7px;font-size:12px;line-height:1.4;}
+.lgr-x{color:#C0392B;font-weight:700;flex-shrink:0;}
+.lgr-ch{color:var(--rose);font-weight:700;flex-shrink:0;}
+.lgr-m{color:var(--muted);}
+.lgr-s{color:#2A1820;font-weight:500;}
 
-/* ANTES/DESPUES */
-.antdes-section{background:var(--cream);padding:80px 24px;}
-.antdes-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:700px;margin:40px auto 0;}
-.antdes-card{border-radius:18px;padding:28px 24px;background:var(--white);}
-.antdes-card.antes{border:1px solid rgba(192,57,43,0.18);}
-.antdes-card.despues{border:1px solid rgba(155,79,107,0.25);}
-.antdes-header{display:flex;align-items:center;gap:8px;margin-bottom:18px;}
-.antdes-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;}
-.dot-red{background:var(--danger);}
-.dot-rose{background:var(--rose);}
-.antdes-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;}
-.label-red{color:var(--danger);}
-.label-rose{color:var(--rose);}
-.antdes-items{display:flex;flex-direction:column;gap:10px;}
-.antdes-item{display:flex;align-items:flex-start;gap:9px;}
-.ax{color:var(--danger);font-size:13px;flex-shrink:0;margin-top:2px;font-weight:700;}
-.ach{color:var(--rose);font-size:13px;flex-shrink:0;margin-top:2px;font-weight:700;}
-.at{font-size:13px;line-height:1.5;}
-.at.m{color:var(--muted);}
-.at.s{color:var(--text);font-weight:500;}
-
-
-
-/* PACK */
-.pack-section{background:var(--rose-dark);padding:80px 24px;}
-.pack-section .section-title{color:var(--white);}
-.pack-section .section-eyebrow{color:var(--gold2);}
-.pack-section .section-sub{color:rgba(255,255,255,0.5);}
-.pack-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:40px;}
-.pack-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:26px;transition:background 0.2s,border-color 0.2s;}
-.pack-card:hover{background:rgba(255,255,255,0.1);border-color:rgba(200,148,58,0.35);}
-.pack-icon{font-size:30px;margin-bottom:14px;}
-.pack-title{font-size:16px;font-weight:600;color:var(--white);margin-bottom:8px;}
-.pack-text{font-size:13px;color:rgba(255,255,255,0.45);line-height:1.65;}
-.pack-badge{display:inline-block;margin-top:12px;background:rgba(200,148,58,0.18);color:var(--gold2);font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:3px 10px;border-radius:10px;border:1px solid rgba(200,148,58,0.3);}
+/* PACK CARDS */
+.pack-grid{display:flex;flex-direction:column;gap:8px;margin-bottom:20px;}
+.pc{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:16px;}
+.pc-icon{font-size:22px;margin-bottom:8px;}
+.pc-t{font-size:14px;font-weight:600;color:var(--white);margin-bottom:5px;}
+.pc-s{font-size:12px;color:rgba(255,255,255,.45);line-height:1.5;}
+.pc-badge{display:inline-block;margin-top:8px;background:rgba(200,148,58,.18);color:var(--gold);font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:8px;border:1px solid rgba(200,148,58,.3);}
 
 /* COMUNIDAD */
-.comunidad-section{background:var(--warm);padding:80px 24px;}
-.comunidad-box{background:var(--white);border-radius:22px;padding:44px;border:1px solid var(--sand);box-shadow:0 12px 40px rgba(155,79,107,0.07);display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;margin-top:40px;}
-.com-feats{display:flex;flex-direction:column;gap:16px;}
-.com-feat{display:flex;align-items:flex-start;gap:14px;}
-.com-feat-icon{width:38px;height:38px;border-radius:10px;background:rgba(155,79,107,0.08);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;}
-.com-feat-text strong{display:block;font-size:14px;font-weight:600;color:var(--rose-dark);margin-bottom:3px;}
-.com-feat-text span{font-size:13px;color:var(--muted);line-height:1.5;}
-.com-highlight{background:linear-gradient(145deg,var(--rose-dark),var(--rose));border-radius:18px;padding:36px 28px;text-align:center;}
-.com-num{font-family:'Fraunces',serif;font-size:72px;font-weight:900;color:var(--white);line-height:1;}
-.com-label{font-size:14px;color:rgba(255,255,255,0.6);margin-top:8px;line-height:1.5;}
-.com-sub{font-size:12px;color:rgba(255,255,255,0.35);margin-top:4px;}
+.com-feats{display:flex;flex-direction:column;gap:12px;margin-bottom:20px;}
+.cf{display:flex;align-items:flex-start;gap:12px;}
+.cf-ico{width:32px;height:32px;border-radius:8px;background:rgba(155,79,107,.1);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
+.cf-t{font-size:13px;font-weight:600;color:var(--dark);margin-bottom:2px;}
+.cf-s{font-size:12px;color:var(--muted);line-height:1.45;}
+.com-highlight{background:linear-gradient(145deg,var(--dark),var(--rose));border-radius:16px;padding:24px 20px;text-align:center;margin-bottom:20px;}
+.com-num{font-family:'Fraunces',serif;font-size:56px;font-weight:900;color:var(--white);line-height:1;}
+.com-lbl{font-size:13px;color:rgba(255,255,255,.6);margin-top:6px;line-height:1.4;}
+
+/* TESTIMONIOS */
+.testi-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px;}
+.testi-img{border-radius:12px;overflow:hidden;box-shadow:0 3px 14px rgba(155,79,107,.12);border:1px solid var(--sand);}
+.testi-img img{width:100%;display:block;}
+
+/* VALOR */
+.valor-box{background:var(--white);border-radius:14px;padding:20px 18px;border:1px solid var(--sand);margin-bottom:16px;}
+.valor-ttl{font-family:'Fraunces',serif;font-size:18px;font-weight:700;color:var(--dark);margin-bottom:10px;}
+.valor-p{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:10px;}
+.valor-q{font-size:13px;color:var(--dark);font-weight:600;line-height:1.6;}
+.valor-cards{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px;}
+.vc{background:var(--warm);border-radius:12px;padding:14px 12px;border:1px solid var(--sand);text-align:center;}
+.vc-ico{font-size:24px;margin-bottom:6px;}
+.vc-t{font-size:12px;font-weight:600;color:#2A1820;margin-bottom:3px;line-height:1.3;}
+.vc-s{font-size:11px;color:var(--muted);line-height:1.3;}
+.valor-close{background:linear-gradient(135deg,var(--dark),var(--rose));border-radius:14px;padding:20px 18px;text-align:center;margin-bottom:20px;}
+.valor-close-t{font-family:'Fraunces',serif;font-size:17px;font-weight:700;font-style:italic;color:var(--white);line-height:1.4;margin-bottom:8px;}
+.valor-close-s{font-size:12px;color:rgba(255,255,255,.55);line-height:1.55;}
 
 /* PRECIO */
-.precio-section{background:var(--cream);padding:80px 24px;}
-.precio-box{background:var(--white);border-radius:22px;padding:48px;border:1px solid var(--sand);box-shadow:0 16px 48px rgba(155,79,107,0.1);max-width:560px;margin:40px auto 0;text-align:center;}
-.precio-tag{display:inline-block;background:rgba(155,79,107,0.1);border:1px solid rgba(155,79,107,0.25);color:var(--rose);font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:6px 18px;border-radius:20px;margin-bottom:22px;}
-.precio-cupos{background:rgba(200,148,58,0.1);border:1px solid rgba(200,148,58,0.3);border-radius:12px;padding:12px 18px;margin-bottom:18px;display:flex;align-items:center;gap:10px;justify-content:center;}
-.precio-cupos-text{font-size:13px;color:var(--rose-dark);font-weight:600;}
-.precio-main{font-family:'Fraunces',serif;font-size:clamp(48px,9vw,76px);font-weight:900;color:var(--rose-dark);line-height:1;margin-bottom:4px;}
-.precio-curr{font-size:28px;vertical-align:super;font-weight:700;}
-.precio-ars{font-size:15px;color:var(--muted);margin-bottom:6px;}
-.precio-aviso{font-size:13px;color:var(--rose);font-weight:600;margin-bottom:28px;}
-.precio-desc{background:var(--warm);border-radius:14px;padding:20px 24px;text-align:left;margin-bottom:24px;border:1px solid var(--sand);}
-.precio-desc-title{font-size:13px;font-weight:700;color:var(--rose-dark);margin-bottom:8px;}
-.precio-desc-text{font-size:13px;color:var(--muted);line-height:1.7;}
-.precio-desc-text strong{color:var(--text);}
-.btn-buy{display:flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,var(--rose-dark),var(--rose));color:var(--white);font-size:17px;font-weight:700;padding:19px 36px;border-radius:50px;text-decoration:none;border:none;cursor:pointer;width:100%;box-shadow:0 8px 28px rgba(155,79,107,0.35);transition:transform 0.2s,box-shadow 0.2s;font-family:'DM Sans',sans-serif;}
-.btn-buy:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(155,79,107,0.45);}
-.precio-guarantee{margin-top:16px;font-size:12px;color:var(--light);display:flex;align-items:center;justify-content:center;gap:5px;}
-.precio-disclaimer{margin-top:14px;font-size:11px;color:var(--light);line-height:1.6;}
+.precio-box{background:var(--white);border-radius:18px;padding:22px 16px;border:1px solid var(--sand);box-shadow:0 8px 32px rgba(155,79,107,.1);margin-bottom:20px;}
+.precio-tag{display:inline-block;background:rgba(155,79,107,.1);border:1px solid rgba(155,79,107,.25);color:var(--rose);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:14px;}
+.precio-cupos{background:rgba(200,148,58,.1);border:1px solid rgba(200,148,58,.3);border-radius:10px;padding:10px 14px;margin-bottom:12px;font-size:12px;color:var(--dark);font-weight:600;text-align:center;}
+.precio-main{font-family:'Fraunces',serif;font-size:48px;font-weight:900;color:var(--dark);line-height:1;margin-bottom:3px;}
+.precio-curr{font-size:24px;vertical-align:super;font-weight:700;}
+.precio-ars{font-size:13px;color:var(--muted);margin-bottom:5px;}
+.precio-aviso{font-size:12px;color:var(--rose);font-weight:600;margin-bottom:16px;}
+.cupos-warn{background:rgba(155,79,107,.06);border:1px solid rgba(155,79,107,.18);border-radius:10px;padding:10px 12px;margin-bottom:16px;font-size:12px;color:var(--dark);line-height:1.5;}
+.cupos-warn strong{color:var(--rose);}
+.precio-disc{font-size:10px;color:#B89AA4;line-height:1.5;margin-top:10px;}
 
 /* FAQ */
-.faq-section{background:var(--warm);padding:80px 24px;}
-.faq-list{margin-top:36px;display:flex;flex-direction:column;gap:10px;}
-.faq-item{background:var(--white);border-radius:14px;border:1px solid var(--sand);overflow:hidden;}
-.faq-q{width:100%;padding:18px 22px;display:flex;justify-content:space-between;align-items:center;gap:14px;background:none;border:none;cursor:pointer;text-align:left;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;color:var(--rose-dark);}
-.faq-arrow{font-size:16px;color:var(--light);transition:transform 0.3s;flex-shrink:0;}
-.faq-item.open .faq-arrow{transform:rotate(180deg);}
-.faq-a{max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding 0.35s;padding:0 22px;}
-.faq-item.open .faq-a{max-height:300px;padding:0 22px 18px;}
-.faq-a p{font-size:14px;color:var(--muted);line-height:1.75;}
+.faq-list{display:flex;flex-direction:column;gap:8px;margin-bottom:20px;}
+.faq-item{background:var(--white);border-radius:12px;border:1px solid var(--sand);overflow:hidden;}
+.faq-q{width:100%;padding:14px 14px;display:flex;justify-content:space-between;align-items:center;gap:12px;background:none;border:none;text-align:left;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;color:var(--dark);}
+.faq-arr{font-size:14px;color:#B89AA4;transition:transform .3s;flex-shrink:0;}
+.faq-item.open .faq-arr{transform:rotate(180deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s;padding:0 14px;}
+.faq-item.open .faq-a{max-height:200px;padding:0 14px 14px;}
+.faq-a p{font-size:12px;color:var(--muted);line-height:1.7;}
 
-/* FINAL CTA */
-.final-section{background:linear-gradient(155deg,var(--rose-dark) 0%,var(--rose) 100%);padding:90px 24px;text-align:center;position:relative;overflow:hidden;}
-.final-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:400px;background:radial-gradient(ellipse,rgba(200,148,58,0.12) 0%,transparent 70%);pointer-events:none;}
-.final-title{font-family:'Fraunces',serif;font-size:clamp(28px,5vw,46px);font-weight:700;color:var(--white);line-height:1.15;margin-bottom:14px;}
-.final-title em{font-style:italic;color:var(--gold2);}
-.final-sub{font-size:16px;color:rgba(255,255,255,0.5);line-height:1.75;max-width:520px;margin:0 auto 36px;font-weight:300;}
-.btn-final{display:inline-flex;align-items:center;gap:10px;background:var(--white);color:var(--rose);font-size:17px;font-weight:700;padding:19px 48px;border-radius:50px;text-decoration:none;border:none;cursor:pointer;box-shadow:0 8px 28px rgba(0,0,0,0.2);transition:transform 0.2s;font-family:'DM Sans',sans-serif;}
-.btn-final:hover{transform:translateY(-2px);}
+/* FINAL */
+.final{background:linear-gradient(155deg,var(--dark) 0%,var(--rose) 100%);padding:48px 16px;text-align:center;}
+.final-ttl{font-family:'Fraunces',serif;font-size:26px;font-weight:700;color:var(--white);line-height:1.2;margin-bottom:14px;}
+.final-ttl em{font-style:italic;color:var(--gold);}
+.final-s{font-size:14px;color:rgba(255,255,255,.55);line-height:1.7;margin-bottom:24px;}
 
-footer{background:#2A0F1A;padding:36px 24px;text-align:center;}
-.footer-brand{font-family:'Fraunces',serif;font-size:20px;color:var(--rose3);margin-bottom:8px;}
-.footer-text{font-size:12px;color:rgba(255,255,255,0.2);line-height:1.7;max-width:540px;margin:0 auto;}
+/* SOCIAL PROOF POPUP */
+#sp{position:fixed;bottom:16px;left:12px;z-index:9999;display:none;background:var(--white);border-radius:10px;box-shadow:0 4px 20px rgba(0,0,0,.12);padding:10px 12px;border-left:3px solid var(--rose);max-width:260px;}
+.sp-inner{display:flex;align-items:center;gap:8px;}
+.sp-ico{width:28px;height:28px;background:linear-gradient(135deg,var(--dark),var(--rose));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;}
+.sp-name{font-size:12px;font-weight:600;color:var(--dark);}
+.sp-action{font-size:11px;color:var(--muted);margin-top:1px;}
+.sp-time{font-size:10px;color:#B89AA4;margin-top:1px;}
+.sp-close{background:none;border:none;font-size:14px;color:#B89AA4;padding:0;line-height:1;margin-left:auto;flex-shrink:0;}
+@keyframes spIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
 
-.reveal{opacity:0;transform:translateY(26px);transition:opacity 0.7s ease,transform 0.7s ease;}
-.reveal.visible{opacity:1;transform:translateY(0);}
+/* STICKY CTA */
+#sticky{position:fixed;bottom:0;left:0;right:0;z-index:88;background:var(--dark);padding:10px 16px 14px;border-top:1px solid rgba(200,148,58,.3);display:none;}
+.sticky-inner{display:flex;align-items:center;justify-content:space-between;gap:10px;}
+.sticky-info p{font-size:10px;color:rgba(255,255,255,.4);margin-bottom:1px;}
+.sticky-info strong{font-size:16px;font-weight:700;color:var(--white);}
+.sticky-btn{background:linear-gradient(135deg,var(--dark),var(--rose));color:var(--white);font-size:13px;font-weight:700;padding:10px 18px;border-radius:24px;border:none;font-family:'DM Sans',sans-serif;white-space:nowrap;}
 
-#sp-popup{position:fixed;bottom:24px;left:20px;z-index:9999;display:none;max-width:300px;background:var(--white);border-radius:14px;box-shadow:0 8px 32px rgba(0,0,0,0.15);padding:14px 16px;border-left:4px solid var(--rose);}
-@keyframes slideIn{from{opacity:0;transform:translateX(-20px);}to{opacity:1;transform:translateX(0);}}
+footer{background:#2A0F1A;padding:28px 16px;text-align:center;}
+.foot-brand{font-family:'Fraunces',serif;font-size:18px;color:#CC7A96;margin-bottom:7px;}
+.foot-t{font-size:11px;color:rgba(255,255,255,.18);line-height:1.65;}
 
-/* VISITOR COUNTER */
-#visitor-counter{position:fixed;top:54px;right:16px;z-index:150;background:var(--white);border:1px solid var(--sand);border-radius:12px;padding:8px 14px;display:flex;align-items:center;gap:8px;box-shadow:0 4px 16px rgba(155,79,107,0.12);font-size:13px;color:var(--text);}
-.vc-dot{width:8px;height:8px;border-radius:50%;background:#25D366;flex-shrink:0;animation:pulse-dot 1.5s ease infinite;}
-@keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.6;transform:scale(1.3);}}
-.vc-text{font-size:12px;color:var(--muted);}
-.vc-num{font-weight:700;color:var(--rose-dark);}
+/* REVEAL */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease;}
+.rv.on{opacity:1;transform:translateY(0);}
 
-/* CUPOS WARNING */
-.cupos-warning{background:linear-gradient(135deg,rgba(155,79,107,0.08),rgba(200,148,58,0.08));border:1px solid rgba(155,79,107,0.2);border-radius:14px;padding:16px 20px;margin-bottom:20px;display:flex;align-items:center;gap:12px;}
-.cupos-warning-icon{font-size:22px;flex-shrink:0;}
-.cupos-warning-text{font-size:14px;color:var(--rose-dark);line-height:1.5;}
-.cupos-warning-text strong{color:var(--rose);}
-
-#sticky-mobile{display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;#sticky-mobile{display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;background:var(--rose-dark);padding:12px 20px 16px;box-shadow:0 -4px 24px rgba(0,0,0,0.2);border-top:1px solid rgba(200,148,58,0.3);}
-.sticky-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:500px;margin:0 auto;}
-.sticky-info p{font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:1px;}
-.sticky-info strong{font-size:18px;font-weight:700;color:var(--white);}
-.sticky-btn{background:var(--white);color:var(--rose);font-size:14px;font-weight:700;padding:12px 22px;border-radius:28px;text-decoration:none;white-space:nowrap;flex-shrink:0;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;}
-
-@media(max-width:720px){
-  /* TOP BAR */
-  .top-bar{padding:8px 16px;gap:6px;}
-  .top-bar-text{font-size:11px;}
-  .top-pill{display:none;}
-
-  /* HERO MOBILE — layout completamente diferente */
-  .hero{
-    min-height:auto;
-    padding:72px 0 0;
-    background:linear-gradient(180deg,var(--rose-dark) 0%,var(--rose) 100%);
-  }
-  .hero-inner{
-    flex-direction:column;
-    gap:0;
-    max-width:100%;
-  }
-
-  /* FOTO MOBILE — mostrar versión simple, ocultar desktop */
-  .hero-photo-mobile{display:block;}
-  .hero-photo{display:none;}
-
-  /* TEXTO HERO — debajo de la foto, con padding */
-  .hero-left{
-    padding:20px 18px 32px;
-    animation:none;
-    opacity:1;
-  }
-  .hero-eyebrow{
-    font-size:10px;
-    padding:5px 12px;
-    margin-bottom:12px;
-    opacity:1;
-    animation:none;
-  }
-  .hero-title{
-    font-size:36px;
-    line-height:1.05;
-    margin-bottom:12px;
-    opacity:1;
-    animation:none;
-  }
-  .hero-title .kg{
-    font-size:56px;
-    line-height:0.95;
-  }
-  .hero-sub{
-    font-size:14px;
-    line-height:1.6;
-    margin-bottom:20px;
-    opacity:1;
-    animation:none;
-    max-width:100%;
-  }
-  .hero-cta{
-    width:100%;
-    opacity:1;
-    animation:none;
-  }
-  .btn-primary{
-    width:100%;
-    justify-content:center;
-    font-size:15px;
-    padding:15px 20px;
-  }
-  .hero-guarantee{font-size:11px;}
-
-  /* SECTIONS */
-  .dolor-section,.sole-section,.antdes-section,
-  .pack-section,.comunidad-section,.precio-section,
-  .faq-section{padding:48px 18px;}
-  .final-section{padding:56px 18px;}
-
-  .section-title{font-size:26px;line-height:1.2;}
-  .section-sub{font-size:14px;}
-
-  /* SCARCITY BAR */
-  .scarcity-inner{flex-direction:column;align-items:flex-start;gap:10px;}
-  .progress-wrap{width:100%;}
-
-  /* DOLOR */
-  .dolor-grid{grid-template-columns:1fr;gap:10px;margin-top:24px;}
-  .dolor-card{padding:14px 16px;}
-  .dolor-text strong{font-size:13px;}
-  .dolor-text span{font-size:12px;}
-
-  /* SOLE */
-  .sole-grid{grid-template-columns:1fr;gap:20px;}
-  .sole-text p{font-size:14px;line-height:1.7;margin-bottom:12px;}
-
-  /* ANTDES */
-  .antdes-grid{grid-template-columns:1fr;gap:12px;}
-  .antdes-card{padding:18px 16px;}
-
-  /* PACK */
-  .pack-grid{grid-template-columns:1fr;gap:10px;}
-  .pack-card{padding:18px 18px;}
-  .pack-title{font-size:14px;}
-  .pack-text{font-size:12px;}
-
-  /* COMUNIDAD */
-  .comunidad-box{grid-template-columns:1fr;padding:22px 18px;gap:22px;}
-  .com-num{font-size:52px;}
-  .com-label{font-size:13px;}
-
-  /* PRECIO */
-  .precio-box{padding:26px 18px;margin-top:24px;}
-  .precio-main{font-size:52px;}
-  .btn-buy{font-size:16px !important;padding:18px 20px !important;}
-  .cupos-warning{flex-direction:column;gap:8px;text-align:center;}
-
-  /* FAQ */
-  .faq-q{font-size:13px;padding:14px 16px;}
-
-  /* VISITOR COUNTER */
-  #visitor-counter{display:none;}
-
-  /* STICKY */
-  #sticky-mobile{padding:10px 16px 14px;}
-  .sticky-info strong{font-size:15px;}
-  .sticky-btn{font-size:13px;padding:10px 16px;}
-
-  /* TESTIMONIOS */
-  .testi-screenshots{grid-template-columns:1fr 1fr !important;gap:10px !important;}
-
-  /* VALOR CARDS */
-  .valor-cards{grid-template-columns:1fr 1fr !important;gap:10px !important;}
-
-  /* SOCIAL PROOF POPUP */
-  #sp-popup{max-width:calc(100vw - 32px);left:16px;right:16px;}
+/* DESKTOP OVERRIDES */
+@media(min-width:720px){
+  .hero{padding-top:64px;display:grid;grid-template-columns:1fr 1fr;align-items:center;min-height:100vh;gap:0;}
+  .hero-img{height:100%;}
+  .hero-img img{height:100%;min-height:100vh;}
+  .hero-txt{padding:60px 48px;}
+  .hero-h1{font-size:52px;}
+  .hero-h1 .num{font-size:76px;}
+  .hero-sub{font-size:17px;}
+  .btn-r,.btn-d{width:auto;display:inline-flex;}
+  .sec,.sec-alt,.sec-dark{padding:72px 40px;}
+  .ttl,.ttl-w{font-size:38px;}
+  .sub,.sub-w{font-size:16px;}
+  .dolor-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .sole-section-inner{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
+  .sole-before-after{margin-bottom:0;}
+  .logros-grid{grid-template-columns:1fr 1fr;gap:14px;}
+  .pack-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .com-inner{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;}
+  .com-feats{margin-bottom:0;}
+  .testi-grid{grid-template-columns:repeat(4,1fr);}
+  .valor-cards{grid-template-columns:repeat(4,1fr);}
+  .precio-box{max-width:520px;margin:0 auto 20px;}
+  .precio-main{font-size:68px;}
+  #sticky{display:none!important;}
+  .final-ttl{font-size:42px;}
+  .tb-p{display:inline-block;}
 }
 </style>
 </head>
 <body>
 
-<script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init','1675146640274214');
-fbq('track','PageView');
-</script>
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1675146640274214');fbq('track','PageView');</script>
 
-<div class="top-bar">
-  <div class="top-bar-text">🌸 Acceso de lanzamiento disponible — <strong>precio especial esta semana</strong></div>
-  <div class="top-pill">Solo por tiempo limitado</div>
+<!-- TOP BAR -->
+<div class="tb">
+  <div class="tb-t">🌸 Acceso de lanzamiento — <strong>precio especial · termina en <span id="countdown-top">10:00</span></strong></div>
+  <div class="tb-p">Solo 4 cupos</div>
 </div>
 
+<!-- HERO -->
 <section class="hero">
-  <div class="hero-inner">
-
-    <!-- FOTO MOBILE ONLY - aparece arriba en celular -->
-    <div class="hero-photo-mobile">
-      <img src="img1.jpg" alt="Sole hoy" style="width:100%;height:260px;object-fit:cover;object-position:center top;display:block;">
-      <div style="position:absolute;top:12px;right:12px;background:var(--white);color:var(--rose);border-radius:50%;width:68px;height:68px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:900;box-shadow:0 6px 20px rgba(0,0,0,0.2);z-index:3;">
-        <span style="font-size:20px;line-height:1;">-37</span>
-        <span style="font-size:7px;text-transform:uppercase;letter-spacing:0.05em;opacity:0.7;">kilos</span>
-      </div>
+  <div class="hero-img">
+    <img src="img1.jpg" alt="Sole hoy — después de bajar 37 kg">
+    <div class="hero-img-overlay"></div>
+    <div class="hero-badge">
+      <span class="hero-badge-num">-37</span>
+      <span class="hero-badge-lbl">kilos</span>
     </div>
-
-    <div class="hero-left">
-      <div class="hero-eyebrow">🌸 Para mujeres +40 en adelante que quieren volver a elegirse</div>
-      <h1 class="hero-title">
-        <span class="kg">37 kg</span>
-        bajados después<br>
-        de los <em>60 años.</em><br>
-        Sin dieta.<br>Sin sufrimiento.
-      </h1>
-      <p class="hero-sub">Si te levantás cansada, te duele el cuerpo, evitás el espejo y sentís que perdiste el control de tu peso hace tiempo — esto es para vos. Sole pasó exactamente por eso. Y lo cambió.</p>
-      <div class="hero-cta">
-        <button class="btn-primary btn-buy" id="btn-comprar" type="button">Quiero empezar mi mejor versión →</button>
-        <div class="hero-guarantee">🔒 Acceso de lanzamiento · $37.991 ARS · Mercado Pago</div>
-      </div>
+    <div class="hero-tag">
+      <div class="hero-tag-name">Soledad — 62 años</div>
+      <div class="hero-tag-sub">Jubilada · Córdoba · -37 kg</div>
     </div>
-    <div class="hero-photo">
-      <div class="hero-photo-frame" style="position:relative;padding:0;overflow:hidden;background:none;border:none;">
-        <div class="resultado-badge"><span class="kg">-37</span><span class="kg-label">kilos</span></div>
-        <img src="img1.jpg" alt="Sole — 37 kg menos" style="width:100%;height:100%;object-fit:cover;border-radius:22px;display:block;">
-        <div class="hero-photo-tag">
-          <div class="hero-photo-tag-name">Soledad — 62 años</div>
-          <div class="hero-photo-tag-sub">Jubilada · Córdoba · -37 kg</div>
-        </div>
-      </div>
-    </div>
+  </div>
+  <div class="hero-txt">
+    <div class="hero-eyebrow">🌸 Para mujeres +40 en adelante</div>
+    <h1 class="hero-h1">
+      <span class="num">37 kg</span>
+      bajados después<br>de los <em>60 años.</em><br>Sin dieta.<br>Sin sufrimiento.
+    </h1>
+    <p class="hero-sub">Si te levantás cansada, te duele el cuerpo, evitás el espejo — esto es para vos. Sole pasó por eso. Y lo cambió.</p>
+    <button class="btn-r btn-buy" id="btn-comprar" type="button">Quiero empezar mi mejor versión →</button>
+    <p class="hero-small">🔒 $37.991 ARS · Acceso de lanzamiento · Mercado Pago</p>
   </div>
 </section>
 
-<div class="scarcity-bar">
-  <div class="scarcity-inner">
-    <div class="scarcity-text">🔥 Lanzamiento — <strong>solo 15 cupos disponibles</strong></div>
-    <div class="progress-wrap">
-      <div class="progress-label"><span>Lugares tomados</span><span id="spots-taken">11 de 15</span></div>
-      <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+<!-- COUNTDOWN BAR — fijo arriba mientras scrollea -->
+<div id="cdown-bar" style="position:fixed;top:44px;left:0;right:0;z-index:98;background:linear-gradient(135deg,#6B2D47,#9B4F6B);padding:8px 16px;text-align:center;display:none;">
+  <span style="font-size:13px;color:rgba(255,255,255,.85);">⏰ Esta oferta termina en </span>
+  <span id="countdown-bar-num" style="font-family:'Fraunces',serif;font-size:16px;font-weight:700;color:#E8B45A;"> 10:00</span>
+  <span style="font-size:13px;color:rgba(255,255,255,.85);"> — quedan <strong style="color:#E8B45A;">4 cupos</strong></span>
+</div>
+<div class="scar">
+  <div class="scar-inner">
+    <div class="scar-t">🔥 Lanzamiento — <strong>solo 15 cupos disponibles</strong></div>
+    <div>
+      <div class="prog-lbl"><span>Lugares tomados</span><span>11 de 15</span></div>
+      <div class="prog-bar"><div class="prog-fill" id="prog"></div></div>
     </div>
-    <div class="scarcity-text">Después: <strong>precio aumenta</strong></div>
+    <div class="scar-t">Después: <strong>precio aumenta</strong></div>
   </div>
 </div>
 
-<section class="dolor-section">
-  <div class="container">
-    <div class="reveal" style="text-align:center;">
-      <div class="section-eyebrow">¿Te suena familiar?</div>
-      <h2 class="section-title">Esto no es falta<br>de voluntad.<br>Es que nadie te dio<br>el camino <em>correcto.</em></h2>
-      <p class="section-sub" style="max-width:560px;margin:0 auto;">Leé esto despacio. Si te identificás con algo, seguí leyendo.</p>
-    </div>
-    <div class="dolor-grid">
-      <div class="dolor-card reveal"><div class="dolor-icon">😞</div><div class="dolor-text"><strong>Te mirás al espejo y no te reconocés</strong><span>No es solo el peso. Es esa sensación de que la mujer que eras quedó en algún lado y no sabés bien cómo volver a ella.</span></div></div>
-      <div class="dolor-card reveal"><div class="dolor-icon">🦴</div><div class="dolor-text"><strong>Te duele el cuerpo y te cansás rápido</strong><span>Las rodillas, la espalda, la falta de aire al subir escaleras. Cosas que antes no te costaban nada hoy te limitan. Y eso duele más que cualquier dolor físico.</span></div></div>
-      <div class="dolor-card reveal"><div class="dolor-icon">😶</div><div class="dolor-text"><strong>Evitás fotos, espejos y cierta ropa</strong><span>Hay prendas que no tocás hace años. Fotos que pedís que no suban. Reuniones a las que no vas porque no querés que te vean así. Y eso cansa.</span></div></div>
-      <div class="dolor-card reveal"><div class="dolor-icon">🔄</div><div class="dolor-text"><strong>Empezaste mil veces y siempre volvés al mismo lugar</strong><span>Cada lunes es una nueva oportunidad. Cada vez que caés, la culpa es peor que antes. Ya casi no te creés cuando decís "esta vez sí".</span></div></div>
-      <div class="dolor-card reveal"><div class="dolor-icon">🍫</div><div class="dolor-text"><strong>Comés por ansiedad, aburrimiento o tristeza</strong><span>No es hambre. Lo sabés. Pero en ese momento no podés parar. Y después viene la culpa, y la culpa genera más ansiedad, y el ciclo sigue.</span></div></div>
-      <div class="dolor-card reveal"><div class="dolor-icon">😓</div><div class="dolor-text"><strong>Sentís que a tu edad ya es tarde</strong><span>Que el cuerpo ya no va a responder. Que el metabolismo "se rompió". Que las demás pueden pero vos no. Eso no es verdad — pero nadie te lo demostró todavía.</span></div></div>
-    </div>
-    <div class="reveal" style="text-align:center;margin-top:44px;">
-      <div style="background:var(--warm);border-radius:18px;padding:36px 40px;border:1px solid var(--sand);max-width:640px;margin:0 auto;position:relative;overflow:hidden;">
-        <div style="position:absolute;top:0;left:0;width:5px;height:100%;background:linear-gradient(180deg,var(--rose-dark),var(--rose));"></div>
-        <p style="font-family:'Fraunces',serif;font-size:clamp(18px,3vw,26px);font-weight:700;font-style:italic;color:var(--rose-dark);line-height:1.4;margin-bottom:16px;">"Ya no sabés cuándo fue la última vez que te sentiste liviana, cómoda en tu ropa y con ganas de moverte."</p>
-        <p style="font-size:15px;color:var(--muted);line-height:1.75;">Eso no es debilidad. Es lo que pasa cuando llevás años sin tener el acompañamiento correcto. Sole estuvo exactamente ahí. Y encontró la salida — sin dietas extremas, sin pastillas, sin sufrir.</p>
-        <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--sand);">
-          <p style="font-size:14px;color:var(--rose);font-weight:600;">¿Querés ver cómo lo hizo? Seguí leyendo. ↓</p>
+<!-- DOLOR -->
+<section class="sec">
+  <div class="rv">
+    <p class="eyebrow">¿Te suena familiar?</p>
+    <h2 class="ttl">No es falta de voluntad.<br>Es que nunca tuviste<br>el camino <em>correcto.</em></h2>
+    <p class="sub">Leé esto despacio. Si te identificás con algo, seguí leyendo.</p>
+  </div>
+  <div class="dolor-grid rv">
+    <div class="dc"><div class="dc-icon">😞</div><div><div class="dc-t">Te mirás al espejo y no te reconocés</div><div class="dc-s">No es solo el peso. Es esa sensación de que la mujer que eras quedó en algún lado.</div></div></div>
+    <div class="dc"><div class="dc-icon">🦴</div><div><div class="dc-t">Te duele el cuerpo y te cansás rápido</div><div class="dc-s">Las rodillas, la espalda, la falta de aire al subir escaleras. Cosas que antes no te costaban nada.</div></div></div>
+    <div class="dc"><div class="dc-icon">😶</div><div><div class="dc-t">Evitás fotos, espejos y cierta ropa</div><div class="dc-s">Hay prendas que no tocás hace años. Fotos que pedís que no suban. Y eso cansa.</div></div></div>
+    <div class="dc"><div class="dc-icon">🔄</div><div><div class="dc-t">Empezaste mil veces y volvés al mismo lugar</div><div class="dc-s">Ya casi no te creés cuando decís "esta vez sí". La culpa cada vez es peor.</div></div></div>
+    <div class="dc"><div class="dc-icon">🍫</div><div><div class="dc-t">Comés por ansiedad o tristeza</div><div class="dc-s">No es hambre. Lo sabés. Pero en ese momento no podés parar. Y después viene la culpa.</div></div></div>
+    <div class="dc"><div class="dc-icon">😓</div><div><div class="dc-t">Sentís que a tu edad ya es tarde</div><div class="dc-s">Que el cuerpo ya no va a responder. Eso no es verdad — pero nadie te lo demostró todavía.</div></div></div>
+  </div>
+  <div class="quote-box rv">
+    <p class="quote-t">"Ya no sabés cuándo fue la última vez que te sentiste liviana, cómoda en tu ropa y con ganas de moverte."</p>
+    <p class="quote-s">Eso no es debilidad. Es lo que pasa cuando llevás años sin el acompañamiento correcto. Sole estuvo ahí. Y encontró la salida.</p>
+    <p class="quote-link">¿Querés ver cómo lo hizo? Seguí leyendo ↓</p>
+  </div>
+</section>
+
+<!-- HISTORIA DE SOLE -->
+<section class="sec-alt">
+  <div class="rv">
+    <p class="eyebrow">La historia real</p>
+    <h2 class="ttl">Sole también pasó<br>por todo <em>eso.</em></h2>
+  </div>
+  <div class="sole-section-inner">
+    <div>
+      <div class="sole-before-after rv">
+        <div class="ba-img">
+          <img src="img2.jpg" alt="Sole antes">
+          <span class="ba-lbl antes">Antes</span>
         </div>
+        <div class="ba-img">
+          <img src="img1.jpg" alt="Sole hoy">
+          <span class="ba-lbl hoy">Hoy — 37 kg menos</span>
+        </div>
+      </div>
+    </div>
+    <div class="sole-txt rv">
+      <p class="sole-p">A los 60 años, Sole no se miraba al espejo. Ni uno solo. Cuando pasaba por una vidriera miraba para otro lado. No quería verse.</p>
+      <p class="sole-p">Buscaba hoteles con ascensor. En la playa se quedaba sentada mientras los demás caminaban. Tenía dolores de rodilla constantes, la espalda siempre cargada, y se cansaba con nada.</p>
+      <p class="sole-p">Había dejado de ir a eventos. De sacarse fotos. De usar ropa que le gustaba. <strong>Había normalizado vivir menos.</strong></p>
+      <p class="sole-p">Hasta que decidió que no quería que eso fuera su historia para siempre.</p>
+      <p class="sole-p">No empezó con una dieta perfecta. Empezó con <strong>una sola acción pequeña. Después otra. Después otra.</strong></p>
+      <p class="sole-p"><strong>Bajó 37 kg. Los dolores desaparecieron. Recuperó energía. Hoy vive sin medicamentos.</strong></p>
+      <div class="hitos">
+        <div class="hito"><div class="hito-ico">❌</div><div class="hito-t">No se miraba al espejo · Dolores · Sin energía</div></div>
+        <div class="hito"><div class="hito-ico">🔄</div><div class="hito-t">Empezó con acciones pequeñas · Sin perfección</div></div>
+        <div class="hito"><div class="hito-ico">✅</div><div class="hito-t"><strong>37 kg menos · Sin medicamentos · Volvió a disfrutar su vida</strong></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="sole-section">
-  <div class="container">
-    <div class="reveal" style="text-align:center;">
-      <div class="section-eyebrow">La historia real</div>
-      <h2 class="section-title">Sole también pasó<br>por todo <em>eso.</em></h2>
-      <p class="section-sub" style="max-width:520px;margin:0 auto;">Y se había acostumbrado a vivir limitada. Hasta que decidió que no quería que eso fuera su vida.</p>
+<!-- QUÉ VAS A LOGRAR -->
+<section class="sec">
+  <div class="rv">
+    <p class="eyebrow">¿Qué vas a lograr?</p>
+    <h2 class="ttl">Empezar a bajar de peso,<br>recuperar vitalidad<br>y <em>sentirte mejor.</em></h2>
+    <p class="sub">Porque a los 45, 50, 60 años también se puede. Sole lo demostró.</p>
+  </div>
+  <div class="logros-grid rv">
+    <div class="lgr-sin">
+      <div class="lgr-hdr"><div class="lgr-dot" style="background:#C0392B;"></div><span class="lgr-lbl" style="color:#C0392B;">Sin el programa</span></div>
+      <div class="lgr-items">
+        <div class="lgr-item"><span class="lgr-x">✗</span><span class="lgr-m">Empezás y abandonás</span></div>
+        <div class="lgr-item"><span class="lgr-x">✗</span><span class="lgr-m">No sabés qué comer</span></div>
+        <div class="lgr-item"><span class="lgr-x">✗</span><span class="lgr-m">Culpa constante</span></div>
+        <div class="lgr-item"><span class="lgr-x">✗</span><span class="lgr-m">Sin energía ni movimiento</span></div>
+        <div class="lgr-item"><span class="lgr-x">✗</span><span class="lgr-m">Sola en el proceso</span></div>
+      </div>
     </div>
-    <div class="sole-grid">
-      <div class="reveal" style="display:grid; grid-template-columns:1fr 1fr; gap:12px; align-items:start;">
-        <div style="display:flex;flex-direction:column;gap:8px;align-items:center;">
-          <img src="img2.jpg" alt="Sole antes — foto histórica" style="width:100%;border-radius:16px;object-fit:cover;aspect-ratio:3/4;display:block;">
-          <div style="background:var(--rose-dark);color:var(--white);font-size:11px;font-weight:700;padding:4px 14px;border-radius:20px;letter-spacing:0.08em;text-transform:uppercase;">Antes</div>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:8px;align-items:center;">
-          <img src="img1.jpg" alt="Sole hoy — entrenando con mancuernas" style="width:100%;border-radius:16px;object-fit:cover;aspect-ratio:3/4;display:block;">
-          <div style="background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--white);font-size:11px;font-weight:700;padding:4px 14px;border-radius:20px;letter-spacing:0.08em;text-transform:uppercase;">Hoy — 37 kg menos</div>
-        </div>
+    <div class="lgr-con">
+      <div class="lgr-hdr"><div class="lgr-dot" style="background:var(--rose);"></div><span class="lgr-lbl" style="color:var(--rose);">Con el programa</span></div>
+      <div class="lgr-items">
+        <div class="lgr-item"><span class="lgr-ch">✓</span><span class="lgr-s">Bajás de peso con acciones reales</span></div>
+        <div class="lgr-item"><span class="lgr-ch">✓</span><span class="lgr-s">Más energía y vitalidad</span></div>
+        <div class="lgr-item"><span class="lgr-ch">✓</span><span class="lgr-s">Menos dolores</span></div>
+        <div class="lgr-item"><span class="lgr-ch">✓</span><span class="lgr-s">Hábitos que podés sostener</span></div>
+        <div class="lgr-item"><span class="lgr-ch">✓</span><span class="lgr-s">Acompañada 90 días</span></div>
       </div>
-      <div class="sole-text reveal">
-        <p>A los 60 años, Sole no se miraba al espejo. Ni uno solo. Cuando pasaba por una vidriera miraba para otro lado. No quería verse.</p>
-        <p>Buscaba hoteles con ascensor porque subir escaleras le costaba. En la playa se quedaba sentada, mirando cómo los demás caminaban. Tenía dolores de rodilla constantes, la espalda siempre cargada, y se cansaba con nada.</p>
-        <p>Había dejado de ir a ciertos eventos. De sacarse fotos. De usar ropa que le gustaba. <strong>Había normalizado vivir menos — y casi ni se daba cuenta.</strong></p>
-        <p>Hasta que un día se miró — de verdad se miró — y decidió que no quería que eso fuera su historia para siempre.</p>
-        <p>No empezó con una dieta perfecta. No se inscribió en un gimnasio caro. Empezó con <strong>una sola acción pequeña. Después otra. Después otra.</strong></p>
-        <p><strong>Bajó 37 kg. Los dolores desaparecieron. Recuperó energía. Volvió a moverse, a entrenar, a sacarse fotos. Hoy vive sin medicamentos y con hábitos que sostiene en su vida real.</strong></p>
-        <div class="sole-hitos">
-          <div class="hito"><div class="hito-icon">❌</div><div class="hito-text">No se miraba al espejo · Dolores de rodilla y espalda · No podía subir escaleras · Sin energía</div></div>
-          <div class="hito"><div class="hito-icon">🔄</div><div class="hito-text">Empezó sin plan perfecto · Con pequeñas acciones · Sin privarse de todo · A su ritmo</div></div>
-          <div class="hito"><div class="hito-icon">✅</div><div class="hito-text"><strong>Bajó 37 kg · Recuperó energía · Sin medicamentos · Volvió a moverse y disfrutar su vida</strong></div></div>
-        </div>
-      </div>
+    </div>
+  </div>
+  <div class="rv" style="text-align:center;">
+    <button class="btn-d btn-buy" style="display:inline-flex;width:auto;" type="button">Quiero empezar este camino →</button>
+    <p style="font-size:12px;color:var(--muted);margin-top:8px;">$37.991 ARS · Solo 15 cupos · Mercado Pago</p>
+  </div>
+</section>
+
+<!-- EL PACK -->
+<section class="sec-dark">
+  <div class="rv">
+    <p class="eyebrow-w">Todo lo que recibís</p>
+    <h2 class="ttl-w">El camino completo<br>de <em>Sole</em>, para vos.</h2>
+    <p class="sub-w">Guías prácticas, coaching de mentalidad, comunidad y encuentros en vivo — 90 días.</p>
+  </div>
+  <div class="pack-grid rv">
+    <div class="pc"><div class="pc-icon">🌸</div><div class="pc-t">El paso a paso de Sole</div><div class="pc-s">Alimentación, hábitos, recetas, compras, movimiento. Todo lo que ella hizo para bajar 37 kg.</div><span class="pc-badge">Guías + recetario + plan 30 días</span></div>
+    <div class="pc"><div class="pc-icon">🧠</div><div class="pc-t">Coaching de mentalidad — Víctor Ferreyra</div><div class="pc-s">Comer emocional, autosabotaje, cómo volver cuando te desordenes. Sesiones grupales + clases grabadas.</div><span class="pc-badge">Sesiones grupales · Clases grabadas</span></div>
+    <div class="pc"><div class="pc-icon">👥</div><div class="pc-t">Comunidad privada de WhatsApp</div><div class="pc-s">No hacés esto sola. Compartís avances, recetas, dudas. Sole y Víctor presentes.</div><span class="pc-badge">90 días de acompañamiento</span></div>
+    <div class="pc"><div class="pc-icon">🎥</div><div class="pc-t">Encuentros grupales en vivo</div><div class="pc-s">Sesiones con Sole y Víctor. Todo grabado para verlo cuando lo necesitás.</div><span class="pc-badge">En vivo + grabado</span></div>
+  </div>
+  <div class="rv" style="text-align:center;">
+    <button class="btn-r btn-buy" type="button">Quiero acceder al programa →</button>
+  </div>
+</section>
+
+<!-- COMUNIDAD -->
+<section class="sec-alt">
+  <div class="rv">
+    <p class="eyebrow">Durante 90 días</p>
+    <h2 class="ttl">No tenés que<br>hacerlo <em>sola.</em></h2>
+    <p class="sub">La diferencia entre empezar y sostenerse muchas veces es el acompañamiento.</p>
+  </div>
+  <div class="com-inner">
+    <div class="com-feats rv">
+      <div class="cf"><div class="cf-ico">🌸</div><div><div class="cf-t">Comunidad privada de WhatsApp</div><div class="cf-s">Compartís avances, comidas, recetas y dudas. Un espacio real de contención.</div></div></div>
+      <div class="cf"><div class="cf-ico">🎥</div><div><div class="cf-t">Encuentros en vivo con Sole y Víctor</div><div class="cf-s">Profundización de temas y acompañamiento en cada etapa.</div></div></div>
+      <div class="cf"><div class="cf-ico">🔄</div><div><div class="cf-t">Volver al camino cuando te desordenes</div><div class="cf-s">No se trata de no fallar. Se trata de aprender a volver sin abandonarte.</div></div></div>
+      <div class="cf"><div class="cf-ico">📹</div><div><div class="cf-t">Clases grabadas disponibles siempre</div><div class="cf-s">Todo el contenido queda grabado para que lo veas cuando lo necesités.</div></div></div>
+    </div>
+    <div class="com-highlight rv">
+      <div class="com-num">90</div>
+      <div class="com-lbl">días acompañada<br>para sostener el proceso</div>
+      <div style="font-size:12px;color:rgba(255,255,255,.35);margin-top:4px;">Comunidad + vivos + guías + clases</div>
+      <button class="btn-r btn-buy" style="margin-top:20px;" type="button">Quiero entrar →</button>
     </div>
   </div>
 </section>
 
-<section class="antdes-section">
-  <div class="container">
-    <div class="reveal" style="text-align:center;">
-      <div class="section-eyebrow">¿Qué vas a lograr?</div>
-      <h2 class="section-title">Empezar a bajar de peso,<br>recuperar tu vitalidad<br>y <em>sentirte mucho mejor.</em></h2>
-      <p class="section-sub" style="max-width:520px;margin:0 auto;">Porque a los 45, 50, 60 años también se puede cambiar. Sole lo demostró. Este es el camino.</p>
-    </div>
-    <div class="antdes-grid">
-      <div class="antdes-card antes reveal">
-        <div class="antdes-header"><div class="antdes-dot dot-red"></div><span class="antdes-label label-red">Sin el programa</span></div>
-        <div class="antdes-items">
-          <div class="antdes-item"><span class="ax">✗</span><span class="at m">Empezás y abandonás una y otra vez</span></div>
-          <div class="antdes-item"><span class="ax">✗</span><span class="at m">No sabés qué comer ni por dónde arrancar</span></div>
-          <div class="antdes-item"><span class="ax">✗</span><span class="at m">Culpa constante, todo o nada</span></div>
-          <div class="antdes-item"><span class="ax">✗</span><span class="at m">Sin energía, sin movimiento</span></div>
-          <div class="antdes-item"><span class="ax">✗</span><span class="at m">Sola en el proceso</span></div>
-          <div class="antdes-item"><span class="ax">✗</span><span class="at m">Información que paraliza</span></div>
-        </div>
-      </div>
-      <div class="antdes-card despues reveal">
-        <div class="antdes-header"><div class="antdes-dot dot-rose"></div><span class="antdes-label label-rose">Con el programa</span></div>
-        <div class="antdes-items">
-          <div class="antdes-item"><span class="ach">✓</span><span class="at s">Empezás a bajar de peso con acciones reales</span></div>
-          <div class="antdes-item"><span class="ach">✓</span><span class="at s">Más energía y vitalidad en tu día a día</span></div>
-          <div class="antdes-item"><span class="ach">✓</span><span class="at s">Menos dolores, más movimiento posible</span></div>
-          <div class="antdes-item"><span class="ach">✓</span><span class="at s">Herramientas reales para el comer emocional</span></div>
-          <div class="antdes-item"><span class="ach">✓</span><span class="at s">Hábitos saludables que podés sostener</span></div>
-          <div class="antdes-item"><span class="ach">✓</span><span class="at s">Acompañada durante 90 días, no sola</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="reveal" style="text-align:center;margin-top:32px;">
-      <button class="btn-primary btn-buy" style="display:inline-flex;" type="button">Quiero empezar este camino →</button>
-      <p style="font-size:13px;color:var(--muted);margin-top:10px;">$37.991 ARS · Solo 15 cupos · Mercado Pago</p>
-    </div>
+<!-- TESTIMONIOS REALES -->
+<section class="sec">
+  <div class="rv">
+    <p class="eyebrow">Testimonios reales del grupo</p>
+    <h2 class="ttl">Lo que dicen las mujeres<br>que ya <em>empezaron.</em></h2>
+    <p class="sub">Mensajes reales de la comunidad de WhatsApp.</p>
+  </div>
+  <div class="testi-grid rv">
+    <div class="testi-img"><img src="img4.jpg" alt="Testimonio — 1 kg en una semana"></div>
+    <div class="testi-img"><img src="img3.jpg" alt="Testimonio — acompañamiento"></div>
+    <div class="testi-img"><img src="img5.jpg" alt="Testimonio — palmadita de confianza"></div>
+    <div class="testi-img"><img src="img6.jpg" alt="Testimonio — 2500g bajados"></div>
+  </div>
+  <div class="rv" style="text-align:center;">
+    <button class="btn-d btn-buy" style="display:inline-flex;width:auto;" type="button">Quiero ser la próxima →</button>
+    <p style="font-size:12px;color:var(--muted);margin-top:8px;">$37.991 ARS · Solo 15 cupos · Garantía</p>
   </div>
 </section>
 
-
-
-<section class="pack-section">
-  <div class="container">
-    <div class="reveal" style="text-align:center;">
-      <div class="section-eyebrow">Todo lo que recibís</div>
-      <h2 class="section-title" style="color:var(--white);">El camino completo<br>de <em style="color:var(--gold2);">Sole</em>, para vos.</h2>
-      <p class="section-sub" style="max-width:520px;margin:0 auto;">No es solo información. Es un camino con guías prácticas, coaching de mentalidad, comunidad y encuentros en vivo durante 90 días.</p>
-    </div>
-    <div class="pack-grid">
-      <div class="pack-card reveal">
-        <div class="pack-icon">🌸</div>
-        <div class="pack-title">El paso a paso de Sole</div>
-        <div class="pack-text">Su historia real convertida en guías prácticas. Alimentación, hábitos, recetas, compras, movimiento. Todo lo que ella hizo para bajar 37 kg, organizado para que vos puedas seguirlo.</div>
-        <span class="pack-badge">Guías + recetario + plan 30 días</span>
-      </div>
-      <div class="pack-card reveal">
-        <div class="pack-icon">🧠</div>
-        <div class="pack-title">Coaching de mentalidad — Víctor Ferreyra</div>
-        <div class="pack-text">La comida no falla sola — falla la cabeza primero. Víctor es coach especializado en mentalidad, identidad y hábitos. Vas a tener sesiones grupales con él donde trabajamos comer emocional, autosabotaje, el todo o nada, y cómo construir una versión más saludable de vos misma. Clases grabadas disponibles siempre.</div>
-        <span class="pack-badge">Sesiones grupales · Clases grabadas</span>
-      </div>
-      <div class="pack-card reveal">
-        <div class="pack-icon">👥</div>
-        <div class="pack-title">Comunidad privada de WhatsApp — 90 días</div>
-        <div class="pack-text">No hacés esto sola. Durante 90 días tenés un espacio para compartir avances, recetas, dudas y logros. Con Sole y Víctor presentes para acompañarte en cada etapa.</div>
-        <span class="pack-badge">Acompañamiento grupal real</span>
-      </div>
-      <div class="pack-card reveal">
-        <div class="pack-icon">🎥</div>
-        <div class="pack-title">Encuentros grupales en vivo</div>
-        <div class="pack-text">Sesiones en vivo con Sole y Víctor para profundizar temas, resolver dudas y acompañar cada etapa del proceso. Todo grabado para que puedas verlo cuando lo necesites.</div>
-        <span class="pack-badge">En vivo con Sole y Víctor</span>
-      </div>
-    </div>
-    <div class="reveal" style="text-align:center;margin-top:40px;">
-      <button class="btn-primary btn-buy" style="background:var(--white);color:var(--rose);" type="button">Quiero acceder al programa →</button>
-    </div>
+<!-- VALOR / PRECIO COMPARACIÓN -->
+<section class="sec-alt">
+  <div class="rv">
+    <p class="eyebrow">Antes de ver el precio</p>
+    <h2 class="ttl">Hacete esta<br>pregunta <em>honesta.</em></h2>
+  </div>
+  <div class="valor-box rv">
+    <p class="valor-ttl">$37.991 ARS — lo que gastás en una cena de fin de semana.</p>
+    <p class="valor-p">Esa cena la olvidás al día siguiente. Este programa puede cambiar cómo te sentís al levantarte, cómo te ves en el espejo y cómo vivís los próximos años.</p>
+    <p class="valor-q">¿Cuánto vale poder subir una escalera sin que te duela? ¿Volver a usar esa ropa? ¿Sacarte una foto sin miedo? ¿Tener energía para disfrutar a las personas que amás?</p>
+  </div>
+  <div class="valor-cards rv">
+    <div class="vc"><div class="vc-ico">👗</div><div class="vc-t">Volver a usar ropa que te gusta</div><div class="vc-s">La que guardaste "cuando baje"</div></div>
+    <div class="vc"><div class="vc-ico">🪜</div><div class="vc-t">Subir escaleras sin dolor</div><div class="vc-s">Sin buscar el ascensor</div></div>
+    <div class="vc"><div class="vc-ico">📸</div><div class="vc-t">Fotos sin miedo</div><div class="vc-s">Sin pedir que no las suban</div></div>
+    <div class="vc"><div class="vc-ico">⚡</div><div class="vc-t">Energía para tu vida</div><div class="vc-s">Con quienes más amás</div></div>
+  </div>
+  <div class="valor-close rv">
+    <p class="valor-close-t">"Todo eso vale más que una cena. Y Sole lo logró sin dieta extrema, a los 62 años."</p>
+    <p class="valor-close-s">Si ella pudo, vos también podés. La única diferencia es tener el camino correcto.</p>
   </div>
 </section>
 
-<section class="comunidad-section">
-  <div class="container">
-    <div class="reveal" style="text-align:center;">
-      <div class="section-eyebrow">Durante 90 días</div>
-      <h2 class="section-title">No tenés que<br>hacerlo <em>sola.</em></h2>
-      <p class="section-sub" style="max-width:500px;margin:0 auto;">La diferencia entre empezar y sostenerse muchas veces es el acompañamiento.</p>
-    </div>
-    <div class="comunidad-box reveal">
-      <div class="com-feats">
-        <div class="com-feat"><div class="com-feat-icon">🌸</div><div class="com-feat-text"><strong>Comunidad privada de WhatsApp</strong><span>Compartís avances, comidas, recetas, dudas. Un espacio real de contención y aprendizaje grupal.</span></div></div>
-        <div class="com-feat"><div class="com-feat-icon">🎥</div><div class="com-feat-text"><strong>Encuentros en vivo con Sole y Víctor</strong><span>Profundización de temas, preguntas y acompañamiento real en cada etapa del proceso.</span></div></div>
-        <div class="com-feat"><div class="com-feat-icon">🔄</div><div class="com-feat-text"><strong>Volver al camino cuando te desordenes</strong><span>No se trata de no fallar. Se trata de aprender a volver sin abandonarte.</span></div></div>
-        <div class="com-feat"><div class="com-feat-icon">📹</div><div class="com-feat-text"><strong>Clases grabadas disponibles siempre</strong><span>Todo el contenido en vivo queda grabado para que puedas revisarlo cuando lo necesites.</span></div></div>
-      </div>
-      <div class="com-highlight">
-        <div class="com-num">90</div>
-        <div class="com-label">días acompañada<br>para sostener el proceso</div>
-        <div class="com-sub">Comunidad + vivos + guías + clases grabadas</div>
-        <button class="btn-primary btn-buy" style="background:rgba(255,255,255,0.15);color:var(--white);border:1px solid rgba(255,255,255,0.3);margin-top:22px;font-size:15px;padding:13px 26px;box-shadow:none;" type="button">Quiero entrar →</button>
-      </div>
-    </div>
+<!-- PRECIO -->
+<section class="sec" id="comprar">
+  <div class="rv" style="text-align:center;">
+    <p class="eyebrow" style="text-align:center;">Acceso de lanzamiento</p>
+    <h2 class="ttl" style="text-align:center;">Empezá hoy con<br>precio <em>especial.</em></h2>
+    <p class="sub" style="text-align:center;">Solo para las primeras personas. Después sube.</p>
   </div>
-</section>
-
-<!-- TESTIMONIOS REALES DEL GRUPO DE WHATSAPP -->
-<div style="background:var(--warm);padding:60px 24px;">
-  <div class="container">
-    <div class="reveal" style="text-align:center;margin-bottom:36px;">
-      <div class="section-eyebrow">Testimonios reales del grupo</div>
-      <h2 class="section-title">Lo que dicen las mujeres<br>que ya <em>empezaron.</em></h2>
-      <p class="section-sub" style="max-width:500px;margin:8px auto 0;">Mensajes reales de la comunidad de WhatsApp de Tu Mejor Versión con Sole.</p>
-    </div>
-
-    <div class="testi-screenshots" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-bottom:40px;">
-
-      <div class="reveal" style="border-radius:18px;overflow:hidden;box-shadow:0 4px 20px rgba(155,79,107,0.12);border:1px solid var(--sand);">
-        <img src="img3.jpg" alt="Testimonio real — Ana Barion semana 1" style="width:100%;display:block;">
-      </div>
-
-      <div class="reveal" style="border-radius:18px;overflow:hidden;box-shadow:0 4px 20px rgba(155,79,107,0.12);border:1px solid var(--sand);">
-        <img src="img4.jpg" alt="Testimonio real — Ana Barion acompañamiento" style="width:100%;display:block;">
-      </div>
-
-      <div class="reveal" style="border-radius:18px;overflow:hidden;box-shadow:0 4px 20px rgba(155,79,107,0.12);border:1px solid var(--sand);">
-        <img src="img5.jpg" alt="Testimonio real — palmadita de confianza" style="width:100%;display:block;">
-      </div>
-
-      <div class="reveal" style="border-radius:18px;overflow:hidden;box-shadow:0 4px 20px rgba(155,79,107,0.12);border:1px solid var(--sand);">
-        <img src="img6.jpg" alt="Testimonio real — 2500g bajados" style="width:100%;display:block;">
-      </div>
-
-    </div>
-
-    <div class="reveal" style="text-align:center;">
-      <button class="btn-primary btn-buy" style="background:linear-gradient(135deg,var(--rose-dark),var(--rose));color:var(--white);" type="button">Quiero ser la próxima →</button>
-      <p style="font-size:13px;color:var(--muted);margin-top:10px;">$37.991 ARS · Solo 15 cupos · Lanzamiento</p>
-    </div>
-  </div>
-</div>
-
-<!-- SECCIÓN VALOR -->
-<section style="background:var(--white);padding:80px 24px;">
-  <div class="container-sm">
-    <div class="reveal" style="text-align:center;margin-bottom:44px;">
-      <div class="section-eyebrow">Antes de ver el precio</div>
-      <h2 class="section-title">Hacete esta<br>pregunta <em>honesta.</em></h2>
-    </div>
-
-    <div class="reveal" style="background:var(--warm);border-radius:20px;padding:40px 44px;border:1px solid var(--sand);margin-bottom:24px;">
-      <p style="font-family:'Fraunces',serif;font-size:clamp(20px,3.5vw,28px);font-weight:700;color:var(--rose-dark);line-height:1.35;margin-bottom:20px;">
-        $37.991 ARS es lo que gastás en una sola cena de fin de semana.
-      </p>
-      <p style="font-size:16px;color:var(--muted);line-height:1.8;margin-bottom:16px;">
-        Esa cena la olvidás al día siguiente. Este programa puede cambiar cómo te sentís al levantarte, cómo te ves en el espejo y cómo vivís los próximos años de tu vida.
-      </p>
-      <p style="font-size:16px;color:var(--text);line-height:1.8;font-weight:400;">
-        Pensalo así: ¿cuánto vale para vos poder subir una escalera sin que te duela? ¿Volver a usar esa ropa que guardaste hace años? ¿Sacarte una foto y que no te importe? ¿Tener energía para disfrutar a tus hijos, a tus nietos, a las personas que amás?
-      </p>
-    </div>
-
-    <div class="reveal valor-cards" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-bottom:32px;">
-      <div style="background:var(--warm);border-radius:14px;padding:20px 22px;border:1px solid var(--sand);text-align:center;">
-        <div style="font-size:28px;margin-bottom:8px;">👗</div>
-        <p style="font-size:14px;color:var(--text);font-weight:600;margin-bottom:4px;">Volver a usar ropa que te gusta</p>
-        <p style="font-size:13px;color:var(--muted);">Esa que guardaste esperando "cuando baje"</p>
-      </div>
-      <div style="background:var(--warm);border-radius:14px;padding:20px 22px;border:1px solid var(--sand);text-align:center;">
-        <div style="font-size:28px;margin-bottom:8px;">🪜</div>
-        <p style="font-size:14px;color:var(--text);font-weight:600;margin-bottom:4px;">Subir escaleras sin dolor</p>
-        <p style="font-size:13px;color:var(--muted);">Sin tener que buscar el ascensor en todos lados</p>
-      </div>
-      <div style="background:var(--warm);border-radius:14px;padding:20px 22px;border:1px solid var(--sand);text-align:center;">
-        <div style="font-size:28px;margin-bottom:8px;">📸</div>
-        <p style="font-size:14px;color:var(--text);font-weight:600;margin-bottom:4px;">Sacarte fotos sin miedo</p>
-        <p style="font-size:13px;color:var(--muted);">Sin pedir que no las suban</p>
-      </div>
-      <div style="background:var(--warm);border-radius:14px;padding:20px 22px;border:1px solid var(--sand);text-align:center;">
-        <div style="font-size:28px;margin-bottom:8px;">⚡</div>
-        <p style="font-size:14px;color:var(--text);font-weight:600;margin-bottom:4px;">Energía para disfrutar tu vida</p>
-        <p style="font-size:13px;color:var(--muted);">Con tus hijos, tus nietos, las personas que amás</p>
-      </div>
-    </div>
-
-    <div class="reveal" style="background:linear-gradient(135deg,var(--rose-dark),var(--rose));border-radius:18px;padding:32px 36px;text-align:center;">
-      <p style="font-family:'Fraunces',serif;font-size:clamp(18px,3vw,24px);font-weight:700;font-style:italic;color:var(--white);line-height:1.4;margin-bottom:12px;">
-        "Todo eso vale más que una cena.<br>Y Sole lo logró sin dieta extrema, sin sufrimiento,<br>a los 62 años."
-      </p>
-      <p style="font-size:14px;color:rgba(255,255,255,0.6);line-height:1.6;">
-        Si ella pudo, vos también podés. La única diferencia entre donde estás ahora<br>y donde querés estar es tener el camino correcto.
-      </p>
-    </div>
-
-  </div>
-</section>
-
-<section class="precio-section" id="comprar">
-  <div class="container">
-    <div class="reveal" style="text-align:center;">
-      <div class="section-eyebrow">Acceso de lanzamiento</div>
-      <h2 class="section-title">Empezá hoy con<br>precio <em>especial.</em></h2>
-      <p class="section-sub" style="max-width:460px;margin:0 auto;">Este precio es solo para las primeras personas que entran. Después sube.</p>
-    </div>
-    <div class="precio-box reveal">
+  <div class="precio-box rv">
+    <div style="text-align:center;">
       <span class="precio-tag">⚡ Precio de lanzamiento — solo esta semana</span>
-      <div class="precio-cupos">
-        <span>🔥</span>
-        <span class="precio-cupos-text">Solo quedan <strong>4 cupos disponibles</strong> de 15 — precio sube al completarse</span>
-      </div>
+    </div>
+    <div class="precio-cupos">🔥 Solo quedan <strong>4 cupos</strong> al precio de lanzamiento</div>
+    <div style="text-align:center;">
       <div class="precio-main"><span class="precio-curr">$</span>37.991</div>
       <div class="precio-ars">ARS · Pago único por Mercado Pago</div>
-      <div class="precio-aviso">⏰ Este precio aumenta la próxima semana</div>
+    </div>
+    <div class="cupos-warn">⚠️ Solo quedan <strong>4 cupos disponibles</strong> al precio de lanzamiento. Una vez que se completen, el precio sube.</div>
+    <div style="background:rgba(107,45,71,.06);border:1px solid rgba(107,45,71,.15);border-radius:10px;padding:12px 14px;margin-bottom:16px;text-align:center;">
+      <span style="font-size:13px;color:var(--dark);">⏰ Esta oferta termina en </span>
+      <span id="countdown-precio" style="font-family:'Fraunces',serif;font-size:22px;font-weight:900;color:var(--rose);">10:00</span>
+    </div>
+    <button class="btn-d btn-buy" style="font-size:17px;padding:18px 20px;" id="btn-comprar2" type="button">🌸 Quiero acceder al precio de lanzamiento →</button>
+    <p class="precio-disc">Este programa es información educativa basada en la experiencia personal de Sole y herramientas de hábitos. No reemplaza la consulta con profesionales de la salud.</p>
+  </div>
+</section>
 
-
-
-      <div class="cupos-warning">
-        <div class="cupos-warning-icon">⚠️</div>
-        <div class="cupos-warning-text">Solo quedan <strong>4 cupos disponibles</strong> al precio de lanzamiento. Una vez que se completen, el precio sube y no hay excepciones.</div>
-      </div>
-      <button class="btn-buy" id="btn-comprar" type="button" style="font-size:20px;padding:22px 36px;letter-spacing:0.01em;">🌸 Quiero acceder al precio de lanzamiento →</button>
-      <div class="precio-disclaimer">Este programa es información educativa basada en la experiencia personal de Sole y herramientas de hábitos. No reemplaza la consulta con profesionales de la salud. No es un plan nutricional personalizado.</div>
+<!-- FAQ -->
+<section class="sec-alt">
+  <div class="rv">
+    <p class="eyebrow">Preguntas frecuentes</p>
+    <h2 class="ttl">Lo que querés <em>saber</em></h2>
+  </div>
+  <div class="faq-list rv">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">¿Necesito hacer dieta o es muy restrictivo? <span class="faq-arr">↓</span></button>
+      <div class="faq-a"><p>No. Se basa en opciones simples y reales que podés adaptar a tu vida. El enfoque es ordenar la alimentación de forma sostenible, no perfecta.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">¿Puedo participar si tengo más de 60 años? <span class="faq-arr">↓</span></button>
+      <div class="faq-a"><p>Está pensado especialmente para mujeres +40, incluyendo mujeres de 60 como Sole. Si tenés condiciones de salud, consultá con tu médico.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">¿Qué pasa si me desordeno? <span class="faq-arr">↓</span></button>
+      <div class="faq-a"><p>Es exactamente el tema central de la guía de mentalidad. Te enseña cómo volver al camino cuando te desordenes, sin abandonarte.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">¿Cómo accedo al material después de pagar? <span class="faq-arr">↓</span></button>
+      <div class="faq-a"><p>Al confirmar el pago te redirige a la página de bienvenida con el link para unirte a la comunidad privada de WhatsApp, donde encontrás todo el material.</p></div>
     </div>
   </div>
 </section>
 
-<section class="faq-section">
-  <div class="container-sm">
-    <div class="reveal" style="text-align:center;">
-      <div class="section-eyebrow">Preguntas frecuentes</div>
-      <h2 class="section-title">Lo que querés<br><em>saber</em></h2>
-    </div>
-    <div class="faq-list">
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">¿Necesito hacer dieta o es muy restrictivo? <span class="faq-arrow">↓</span></button>
-        <div class="faq-a"><p>No. El programa se basa en opciones simples y reales que podés adaptar a tu vida. El enfoque es ordenar la alimentación de forma sostenible, no perfecta. Sole no siguió una dieta extrema — y eso es exactamente lo que te enseña.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">¿Puedo participar si tengo más de 60 años o condiciones de salud? <span class="faq-arrow">↓</span></button>
-        <div class="faq-a"><p>El programa está pensado especialmente para mujeres +40, incluyendo mujeres de 60 años como Sole. Si tenés condiciones de salud específicas, te recomendamos consultar con tu médico. El contenido es educativo y complementario, no reemplaza atención profesional.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">¿Qué pasa si me desordeno o no puedo seguirlo perfecto? <span class="faq-arrow">↓</span></button>
-        <div class="faq-a"><p>Eso es exactamente el tema central de la guía de mentalidad. El programa no espera que seas perfecta. Te enseña cómo volver al camino cuando te desordenes, sin abandonarte. La constancia no es no fallar — es aprender a volver.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">¿Cómo accedo al material después de pagar? <span class="faq-arrow">↓</span></button>
-        <div class="faq-a"><p>Al confirmar el pago por Mercado Pago, te redirige automáticamente a la página de bienvenida donde encontrás el link para unirte a la comunidad privada de WhatsApp. Dentro del grupo vas a encontrar el acceso a todo el material y podés pedirlo directamente ahí también.</p></div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<section class="final-section">
-  <div class="container" style="position:relative;z-index:2;">
-    <div class="reveal">
-      <h2 class="final-title">Sole lo hizo a los 60.<br>Sin excusas. Sin esperar.<br>Vos podés <em>empezar hoy.</em></h2>
-      <p style="font-size:17px;color:rgba(255,255,255,0.6);line-height:1.8;max-width:520px;margin:0 auto 16px;font-weight:300;">Cada semana que pasa es otra semana viviendo con ese peso — en el cuerpo y en la cabeza. Ya sabés que sola es más difícil. Este programa existe para que no tengas que hacerlo sola.</p>
-
-      <button class="btn-final btn-buy" type="button">Quiero empezar mi mejor versión →</button>
-      <p style="font-size:13px;color:rgba(255,255,255,0.3);margin-top:14px;">$37.991 ARS · Solo 15 cupos · Lanzamiento</p>
-    </div>
+<!-- FINAL -->
+<section class="final">
+  <div class="rv">
+    <h2 class="final-ttl">Sole lo hizo a los 60.<br>Sin excusas. Sin esperar.<br>Vos podés <em>empezar hoy.</em></h2>
+    <p class="final-s">Cada semana que pasa es otra semana viviendo con ese peso — en el cuerpo y en la cabeza.</p>
+    <button class="btn-r btn-buy" style="display:inline-flex;width:auto;margin:0 auto;" type="button">Quiero empezar mi mejor versión →</button>
+    <p style="font-size:12px;color:rgba(255,255,255,.3);margin-top:12px;">$37.991 ARS · Solo 15 cupos · Lanzamiento</p>
   </div>
 </section>
 
 <footer>
-  <div class="footer-brand">Tu Mejor Versión con Sole</div>
-  <p class="footer-text">Programa de hábitos y alimentación basado en experiencia personal. No reemplaza la consulta con profesionales de la salud. No es un plan nutricional personalizado. Garantía de devolución de 7 días.<br>© 2026 Tu Mejor Versión con Sole — Todos los derechos reservados.</p>
+  <div class="foot-brand">Tu Mejor Versión con Sole</div>
+  <p class="foot-t">Programa de hábitos y alimentación basado en experiencia personal. No reemplaza la consulta con profesionales de la salud.<br>© 2026 Tu Mejor Versión con Sole — Todos los derechos reservados.</p>
 </footer>
 
-<div id="sp-popup">
-  <div style="display:flex;align-items:center;gap:10px;">
-    <div style="width:38px;height:38px;background:linear-gradient(135deg,var(--rose-dark),var(--rose));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;">🌸</div>
-    <div style="flex:1;min-width:0;">
-      <div id="sp-name" style="font-size:13px;font-weight:600;color:var(--rose-dark);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"></div>
-      <div id="sp-action" style="font-size:12px;color:var(--muted);margin-top:1px;"></div>
-      <div id="sp-time" style="font-size:11px;color:var(--light);margin-top:2px;"></div>
+<!-- SOCIAL PROOF POPUP -->
+<div id="sp">
+  <div class="sp-inner">
+    <div class="sp-ico">🌸</div>
+    <div>
+      <div class="sp-name" id="sp-name"></div>
+      <div class="sp-action" id="sp-action"></div>
+      <div class="sp-time" id="sp-time"></div>
     </div>
-    <button onclick="document.getElementById('sp-popup').style.display='none'" style="background:none;border:none;cursor:pointer;font-size:16px;color:var(--light);padding:0;line-height:1;flex-shrink:0;">×</button>
+    <button class="sp-close" onclick="document.getElementById('sp').style.display='none'">×</button>
   </div>
 </div>
 
-<div id="sticky-mobile">
+<!-- STICKY CTA MOBILE -->
+<div id="sticky">
   <div class="sticky-inner">
     <div class="sticky-info">
-      <p>Solo 4 cupos restantes · 90 días acompañada</p>
+      <p>4 cupos restantes · 90 días</p>
       <strong>$37.991 ARS</strong>
     </div>
-    <button class="sticky-btn btn-buy" type="button">Empezar →</button>
+    <button class="sticky-btn btn-buy" type="button">Acceder →</button>
   </div>
-</div>
-
-<!-- VISITOR COUNTER -->
-<div id="visitor-counter">
-  <div class="vc-dot"></div>
-  <span class="vc-text"><span class="vc-num" id="vc-num">47</span> personas viendo ahora</span>
 </div>
 
 <script src="checkout.js"></script>
 <script>
-const obs = new IntersectionObserver((entries) => {
-  entries.forEach((e,i) => { if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*80);obs.unobserve(e.target);} });
-},{threshold:0.1});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+// REVEAL
+const obs=new IntersectionObserver((es)=>{es.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('on'),i*60);obs.unobserve(e.target);}});},{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
 
+// FAQ
 function toggleFaq(btn){
   const item=btn.closest('.faq-item');
-  const isOpen=item.classList.contains('open');
+  const open=item.classList.contains('open');
   document.querySelectorAll('.faq-item.open').forEach(el=>el.classList.remove('open'));
-  if(!isOpen)item.classList.add('open');
+  if(!open)item.classList.add('open');
 }
 
+// PROGRESS BAR
+window.addEventListener('load',()=>{setTimeout(()=>{const f=document.getElementById('prog');if(f)f.style.width='73%';},600);});
+
+// COUNTDOWN TIMER — siempre arranca desde 10 minutos
 (function(){
-  const names=['Graciela de Córdoba','Marta de Buenos Aires','Silvia de Rosario','Patricia de Mendoza','Norma de Tucumán','Liliana de Mar del Plata','Susana de La Plata','Viviana de Salta','Rosa de Neuquén','Claudia de Santa Fe','Elena de Bahía Blanca','Mirta de Jujuy','Beatriz de Entre Ríos','Alicia de Misiones','Nora de San Juan'];
-  const actions=['acaba de acceder al programa 🎉','aprovechó el precio de lanzamiento','se sumó con Sole y Víctor','acaba de empezar su mejor versión','accedió antes de que suban los cupos','se unió a la comunidad de 90 días','aprovechó la oferta de lanzamiento','empezó su camino con Sole'];
-  const times=['Hace 2 minutos','Hace 5 minutos','Hace 8 minutos','Hace 12 minutos','Hace 3 minutos','Hace 7 minutos','Recién ahora','Hace 15 minutos'];
-  const popup=document.getElementById('sp-popup');
+  const end = Date.now() + 10 * 60 * 1000;
+  function fmt(ms) {
+    if (ms <= 0) return '00:00';
+    const s = Math.floor(ms / 1000);
+    const m = Math.floor(s / 60);
+    const sec = s % 60;
+    return `${String(m).padStart(2,'0')}:${String(sec).padStart(2,'0')}`;
+  }
+  const ids = ['countdown-top','countdown-bar-num','countdown-precio'];
+  function tick() {
+    const left = end - Date.now();
+    const str = fmt(left);
+    ids.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = id === 'countdown-bar-num' ? ' ' + str : str;
+    });
+  }
+  tick();
+  setInterval(tick, 1000);
+  // Show countdown bar after scrolling past hero
+  const hero = document.querySelector('.hero');
+  const bar = document.getElementById('cdown-bar');
+  if (hero && bar) {
+    window.addEventListener('scroll', () => {
+      bar.style.display = hero.getBoundingClientRect().bottom < 0 ? 'block' : 'none';
+    }, {passive:true});
+  }
+})();
+
+// SOCIAL PROOF — máximo 2 veces, popup pequeño
+(function(){
+  const names=['Graciela de Córdoba','Marta de Buenos Aires','Silvia de Rosario','Patricia de Mendoza','Norma de Tucumán','Liliana de Mar del Plata','Susana de La Plata','Rosa de Neuquén','Claudia de Santa Fe','Elena de Bahía Blanca'];
+  const actions=['acaba de acceder al programa 🎉','aprovechó el precio de lanzamiento','se sumó con Sole y Víctor','accedió antes de que suban los cupos'];
+  const times=['Hace 2 minutos','Hace 5 minutos','Recién ahora','Hace 3 minutos','Hace 7 minutos'];
+  const popup=document.getElementById('sp');
+  let count = 0;
+  const MAX = 2;
   function show(){
+    if (count >= MAX) return;
+    count++;
     document.getElementById('sp-name').textContent=names[Math.floor(Math.random()*names.length)];
     document.getElementById('sp-action').textContent=actions[Math.floor(Math.random()*actions.length)];
     document.getElementById('sp-time').textContent=times[Math.floor(Math.random()*times.length)];
-    popup.style.display='block';popup.style.animation='none';popup.offsetHeight;popup.style.animation='slideIn 0.4s ease';
-    setTimeout(()=>{popup.style.opacity='0';popup.style.transition='opacity 0.4s ease';setTimeout(()=>{popup.style.display='none';popup.style.opacity='1';popup.style.transition='';},400);},5000);
+    popup.style.display='block';
+    popup.style.animation='spIn .4s ease';
+    setTimeout(()=>{
+      popup.style.opacity='0';popup.style.transition='opacity .4s';
+      setTimeout(()=>{popup.style.display='none';popup.style.opacity='1';popup.style.transition='';},400);
+    },4000);
   }
-  setTimeout(()=>{show();setInterval(show,25000+Math.random()*20000);},8000);
+  setTimeout(()=>{ show(); if(MAX>1) setTimeout(show, 35000); }, 10000);
 })();
 
+// STICKY MOBILE
 (function(){
-  const cta=document.getElementById('sticky-mobile');
+  const s=document.getElementById('sticky');
   const hero=document.querySelector('.hero');
   const comprar=document.getElementById('comprar');
-  if(!cta||!hero||!comprar)return;
-  function update(){
-    if(window.innerWidth>=768){cta.style.display='none';return;}
+  if(!s||!hero||!comprar)return;
+  function upd(){
+    if(window.innerWidth>=720){s.style.display='none';return;}
     const hb=hero.getBoundingClientRect().bottom;
     const ct=comprar.getBoundingClientRect().top;
-    cta.style.display=(hb<0&&ct>window.innerHeight)?'block':'none';
+    s.style.display=(hb<0&&ct>window.innerHeight)?'block':'none';
   }
-  window.addEventListener('scroll',update,{passive:true});
-  window.addEventListener('resize',update);
-  update();
-})();
-
-window.addEventListener('load',()=>{
-  setTimeout(()=>{const f=document.getElementById('progress-fill');if(f)f.style.width='73%';},500);
-});
-
-// VISITOR COUNTER
-(function(){
-  const el = document.getElementById('vc-num');
-  if (!el) return;
-  let base = 38 + Math.floor(Math.random() * 24);
-  el.textContent = base;
-  setInterval(() => {
-    const delta = Math.random() > 0.5 ? 1 : -1;
-    base = Math.max(28, Math.min(72, base + delta));
-    el.textContent = base;
-  }, 4000 + Math.random() * 3000);
+  window.addEventListener('scroll',upd,{passive:true});
+  window.addEventListener('resize',upd);
+  upd();
 })();
 </script>
 </body>
