@@ -3,331 +3,83 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>¡Gracias por tu compra! — La Brújula Materna</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>¡Bienvenida! Tu acceso está listo — Tu Mejor Versión con Sole</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: linear-gradient(160deg, #1C2B3A 0%, #243344 60%, #2C3D4E 100%);
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 40px 20px;
-  }
+:root{--rose:#9B4F6B;--rose2:#B5607E;--rose-dark:#6B2D47;--gold:#C8943A;--gold2:#E8B45A;--cream:#FDF8F8;--warm:#FAF0F3;--sand:#F0D8E0;--text:#2A1820;--muted:#7A5A64;--light:#B89AA4;--white:#FFFFFF;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'DM Sans',sans-serif;background:linear-gradient(155deg,var(--rose-dark) 0%,var(--rose) 100%);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px 20px;}
+.card{background:var(--white);border-radius:24px;padding:52px 48px;max-width:580px;width:100%;box-shadow:0 24px 60px rgba(107,45,71,0.3);}
+.top-tag{display:inline-block;background:rgba(155,79,107,0.1);border:1px solid rgba(155,79,107,0.25);color:var(--rose);font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:20px;}
+.emoji{font-size:52px;margin-bottom:16px;display:block;}
+.title{font-family:'Fraunces',serif;font-size:clamp(26px,5vw,38px);font-weight:700;color:var(--rose-dark);line-height:1.15;margin-bottom:10px;}
+.title em{font-style:italic;color:var(--rose);}
+.sub{font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:32px;font-weight:300;}
 
-  .card {
-    background: #FDF8F2;
-    border-radius: 24px;
-    max-width: 600px;
-    width: 100%;
-    padding: 52px 48px;
-    text-align: center;
-    box-shadow: 0 32px 80px rgba(0,0,0,0.3);
-  }
+.access-box{background:linear-gradient(145deg,var(--rose-dark),var(--rose));border-radius:18px;padding:32px;margin-bottom:28px;text-align:center;}
+.access-label{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:10px;}
+.access-title{font-family:'Fraunces',serif;font-size:20px;font-weight:700;color:var(--white);margin-bottom:6px;}
+.access-desc{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:22px;}
+.btn-whatsapp{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--white);color:var(--rose-dark);font-size:16px;font-weight:700;padding:16px 28px;border-radius:50px;text-decoration:none;box-shadow:0 6px 20px rgba(0,0,0,0.15);transition:transform 0.2s;}
+.btn-whatsapp:hover{transform:translateY(-2px);}
 
-  .check-circle {
-    width: 80px; height: 80px;
-    background: linear-gradient(135deg, #4A9060, #2A8A50);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 36px;
-    margin: 0 auto 28px;
-    box-shadow: 0 8px 28px rgba(42,138,80,0.3);
-  }
+.steps{margin-bottom:28px;}
+.steps-title{font-size:13px;font-weight:700;color:var(--rose-dark);margin-bottom:14px;text-align:center;}
+.step{display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;}
+.step-num{width:26px;height:26px;border-radius:50%;background:rgba(155,79,107,0.12);color:var(--rose);font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.step-text{font-size:14px;color:var(--muted);line-height:1.55;}
+.step-text strong{color:var(--text);}
 
-  .brand {
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: #C8943A;
-    margin-bottom: 12px;
-  }
-
-  h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 38px;
-    font-weight: 700;
-    color: #1C2B3A;
-    line-height: 1.15;
-    margin-bottom: 16px;
-  }
-
-  h1 em { font-style: italic; color: #C8943A; }
-
-  .subtitle {
-    font-size: 16px;
-    color: #6A6258;
-    line-height: 1.65;
-    font-weight: 300;
-    margin-bottom: 40px;
-    max-width: 440px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .divider {
-    width: 50px; height: 2px;
-    background: linear-gradient(90deg, transparent, #C8943A, transparent);
-    margin: 0 auto 36px;
-  }
-
-  .downloads {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    margin-bottom: 36px;
-  }
-
-  .download-btn {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    background: #1C2B3A;
-    border-radius: 14px;
-    padding: 18px 24px;
-    text-decoration: none;
-    transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 4px 16px rgba(28,43,58,0.15);
-  }
-
-  .download-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 28px rgba(28,43,58,0.25);
-  }
-
-  .download-icon {
-    width: 48px; height: 48px;
-    border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 22px;
-    flex-shrink: 0;
-  }
-
-  .download-icon.main { background: linear-gradient(135deg, #F2C4A8, #E8A882); }
-  .download-icon.bonus { background: linear-gradient(135deg, #D4C8F0, #9B7FD0); }
-
-  .download-info {
-    text-align: left;
-    flex: 1;
-  }
-
-  .download-label {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.45);
-    margin-bottom: 3px;
-  }
-
-  .download-name {
-    font-size: 15px;
-    font-weight: 600;
-    color: #FFFFFF;
-    line-height: 1.25;
-  }
-
-  .download-size {
-    font-size: 12px;
-    color: rgba(255,255,255,0.35);
-    margin-top: 2px;
-  }
-
-  .download-arrow {
-    font-size: 20px;
-    color: #C8943A;
-    flex-shrink: 0;
-  }
-
-  .info-box {
-    background: #FFF5E8;
-    border: 1px solid rgba(200,148,58,0.25);
-    border-radius: 12px;
-    padding: 18px 22px;
-    margin-bottom: 28px;
-    text-align: left;
-  }
-
-  .info-box-title {
-    font-size: 13px;
-    font-weight: 700;
-    color: #1C2B3A;
-    margin-bottom: 8px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .info-box p {
-    font-size: 13px;
-    color: #6A6258;
-    line-height: 1.65;
-  }
-
-  .steps {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-top: 8px;
-  }
-
-  .step {
-    display: flex;
-    gap: 10px;
-    align-items: flex-start;
-    font-size: 13px;
-    color: #6A6258;
-  }
-
-  .step-num {
-    width: 20px; height: 20px;
-    background: #1C2B3A;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 10px;
-    font-weight: 700;
-    color: white;
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
-
-  .guarantee {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    font-size: 13px;
-    color: #A89E94;
-    margin-top: 8px;
-  }
-
-  @media (max-width: 500px) {
-    .card { padding: 36px 24px; }
-    h1 { font-size: 30px; }
-  }
+.contact{background:var(--warm);border-radius:14px;padding:20px 24px;border:1px solid var(--sand);}
+.contact p{font-size:13px;color:var(--muted);line-height:1.75;}
+.contact strong{color:var(--text);}
+.contact a{color:var(--rose);font-weight:600;text-decoration:none;}
 </style>
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1675146640274214');
+fbq('track','Purchase',{value:37991,currency:'ARS'});
+</script>
 </head>
 <body>
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1675136240274214');
-fbq('track', 'PageView');
-fbq('track', 'Purchase', {value: 9900, currency: 'ARS'});
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1675136240274214&ev=Purchase&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-
 <div class="card">
+  <span class="top-tag">🌸 Pago confirmado</span>
+  <span class="emoji">🎉</span>
+  <h1 class="title">¡Bienvenida a<br><em>Tu Mejor Versión!</em></h1>
+  <p class="sub">Tu pago fue confirmado. Ya podés acceder a la comunidad y a todo el material. ¡Empezamos!</p>
 
-  <div class="check-circle">✓</div>
-
-  <div class="brand">La Brújula Materna</div>
-
-  <h1>¡Tu compra fue<br><em>exitosa</em>! 🎉</h1>
-
-  <p class="subtitle">
-    Gracias por confiar en nosotros. Tus materiales están listos para descargar ahora mismo.
-  </p>
-
-  <div class="divider"></div>
-
-  <!-- BOTONES DE DESCARGA -->
-  <!-- 
-    INSTRUCCIÓN: Reemplazá los href con los links reales de Google Drive.
-    Para obtenerlos: Google Drive → click derecho en el PDF → "Obtener enlace" → "Cualquiera con el enlace" → Copiar
-  -->
-  <div class="downloads">
-
-    <a href="https://drive.google.com/uc?export=download&id=1ujD-in8E79sAjeFYZJhNas9t9o72mNFG" class="download-btn" target="_blank">
-      <div class="download-icon main">🌙</div>
-      <div class="download-info">
-        <div class="download-label">Ebook principal</div>
-        <div class="download-name">Sueño del Bebé — Guía Completa</div>
-        <div class="download-size">PDF · 36 páginas · 13 MB</div>
-      </div>
-      <div class="download-arrow">↓</div>
+  <div class="access-box">
+    <p class="access-label">Tu acceso está listo ahora</p>
+    <p class="access-title">Uníte a la comunidad de WhatsApp</p>
+    <p class="access-desc">Dentro del grupo encontrás el link a todo el material, las guías y el recetario de Sole. También podés pedirlo directamente ahí.</p>
+    <a class="btn-whatsapp" href="https://chat.whatsapp.com/GjiSozLEq671ygaIUfNumi?s=cl&p=i&mlu=4" target="_blank">
+      💬 Unirme a la comunidad →
     </a>
-
-    <a href="https://drive.google.com/uc?export=download&id=1JwpOZsg6L4XjmGTSnBiEIKbHb8jJZWiS" class="download-btn" target="_blank">
-      <div class="download-icon bonus">📱</div>
-      <div class="download-info">
-        <div class="download-label">Bonus 1</div>
-        <div class="download-name">Pantallas y Sueño del Bebé</div>
-        <div class="download-size">PDF · 17 páginas · 6 MB</div>
-      </div>
-      <div class="download-arrow">↓</div>
-    </a>
-
-    <a href="https://drive.google.com/uc?export=download&id=1mK-iQ6rAHvV5pzwPo3uRhbShfihUT4u3" class="download-btn" target="_blank">
-      <div class="download-icon" style="background: linear-gradient(135deg, #B0F0C0, #70D090);">⚡</div>
-      <div class="download-info">
-        <div class="download-label">Bonus 2</div>
-        <div class="download-name">75+ Actividades para Agotar al Bebé</div>
-        <div class="download-size">PDF · 22 páginas · 3.6 MB</div>
-      </div>
-      <div class="download-arrow">↓</div>
-    </a>
-
-    <a href="https://drive.google.com/uc?export=download&id=1eMGai8QCL8FkLDKq6cMOonF7oyvUy-4p" class="download-btn" target="_blank">
-      <div class="download-icon" style="background: linear-gradient(135deg, #D4B0F0, #A070D0);">🎵</div>
-      <div class="download-info">
-        <div class="download-label">Bonus 3</div>
-        <div class="download-name">30 Canciones de Cuna para la Rutina Nocturna</div>
-        <div class="download-size">PDF · 16 páginas · 1.0 MB</div>
-      </div>
-      <div class="download-arrow">↓</div>
-    </a>
-
   </div>
 
-  <!-- INSTRUCCIONES -->
-  <div class="info-box">
-    <div class="info-box-title">📲 ¿Cómo abrir los PDFs?</div>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <span>Hacé click en cada botón de descarga arriba.</span>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <span>Si abre Google Drive, hacé click en el ícono de descarga (⬇) arriba a la derecha.</span>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <span>Guardá los PDFs en tu teléfono o computadora — son tuyos para siempre.</span>
-      </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <span>Abrís con cualquier lector de PDF (el que ya tenés en tu dispositivo sirve).</span>
-      </div>
+  <div class="steps">
+    <p class="steps-title">Tus primeros pasos</p>
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-text"><strong>Tocá el botón de arriba</strong> — te lleva directo al grupo de WhatsApp con Sole, Víctor y todas las participantes.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-text"><strong>En la descripción del grupo</strong> encontrás el link a todo el material en Google Drive. También podés pedirlo en el grupo.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-text"><strong>Empezá por la Guía de Bienvenida</strong> — te dice exactamente por dónde arrancar sin abrumarte.</div>
     </div>
   </div>
 
-  <!-- CONTACTO Y GARANTIA -->
-  <div style="margin-top:16px; text-align:center; padding:16px 20px; background:#FDF8F2; border-radius:12px; border:1px solid rgba(28,43,58,0.08);">
-    <p style="font-size:13px; color:#6A6258; line-height:1.8;">
-      ¿Consultas o necesitás la devolución?<br>
-      <a href="mailto:labrujulamaterna@gmail.com" style="color:#C8943A; font-weight:700; text-decoration:none;">labrujulamaterna@gmail.com</a><br>
-      <span style="font-size:12px; color:#A89E94;">Respondemos en menos de 24 hs · Garantía de 7 días sin preguntas</span>
-    </p>
+  <div class="contact">
+    <p>¿No podés acceder al grupo o tenés alguna duda?<br>
+    Escribile directamente a Sole por WhatsApp:<br>
+    <a href="https://wa.me/5493532404061">+54 9 3532 40-4061</a><br><br>
+    Te responde en menos de 24hs. 🌸</p>
   </div>
-
 </div>
-
-
-
 </body>
 </html>
