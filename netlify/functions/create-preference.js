@@ -1,7 +1,6 @@
 const https = require('https');
 
 exports.handler = async (event, context) => {
-  // Only allow POST
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, body: 'Method Not Allowed' };
   }
@@ -10,25 +9,24 @@ exports.handler = async (event, context) => {
 
   const preference = {
     items: [{
-      title: 'Sueño del Bebé — La Brújula Materna',
-      description: 'Guía completa 36 páginas + Bonus Pantallas y Sueño. Descarga inmediata.',
+      title: 'Tu Mejor Versión con Sole — Pack Completo',
+      description: 'Guías completas + Comunidad 90 días + Encuentros en vivo. Acceso inmediato.',
       quantity: 1,
       currency_id: 'ARS',
-      unit_price: 9900
+      unit_price: 37991
     }],
     back_urls: {
-      success: 'https://la-brujula-materna.netlify.app/gracias.html',
-      failure: 'https://la-brujula-materna.netlify.app/?pago=fallido',
-      pending: 'https://la-brujula-materna.netlify.app/gracias.html'
+      success: 'https://tumejorversionconsole.netlify.app/gracias.html',
+      failure: 'https://tumejorversionconsole.netlify.app/?pago=fallido',
+      pending: 'https://tumejorversionconsole.netlify.app/gracias.html'
     },
     auto_return: 'approved',
-    statement_descriptor: 'La Brujula Materna',
-    external_reference: 'ebook-sueno-bebe'
+    statement_descriptor: 'Tu Mejor Version Sole',
+    external_reference: 'sole-pack-fundador'
   };
 
   return new Promise((resolve) => {
     const body = JSON.stringify(preference);
-
     const options = {
       hostname: 'api.mercadopago.com',
       path: '/checkout/preferences',
@@ -49,10 +47,7 @@ exports.handler = async (event, context) => {
           if (parsed.init_point) {
             resolve({
               statusCode: 200,
-              headers: {
-                'Access-Control-Allow-Origin': '*',
-                'Content-Type': 'application/json'
-              },
+              headers: { 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json' },
               body: JSON.stringify({ init_point: parsed.init_point })
             });
           } else {
@@ -63,21 +58,13 @@ exports.handler = async (event, context) => {
             });
           }
         } catch (e) {
-          resolve({
-            statusCode: 500,
-            headers: { 'Access-Control-Allow-Origin': '*' },
-            body: JSON.stringify({ error: 'Parse error' })
-          });
+          resolve({ statusCode: 500, headers: { 'Access-Control-Allow-Origin': '*' }, body: JSON.stringify({ error: 'Parse error' }) });
         }
       });
     });
 
     req.on('error', (e) => {
-      resolve({
-        statusCode: 500,
-        headers: { 'Access-Control-Allow-Origin': '*' },
-        body: JSON.stringify({ error: e.message })
-      });
+      resolve({ statusCode: 500, headers: { 'Access-Control-Allow-Origin': '*' }, body: JSON.stringify({ error: e.message }) });
     });
 
     req.write(body);
